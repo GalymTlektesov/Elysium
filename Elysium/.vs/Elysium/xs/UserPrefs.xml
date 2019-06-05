@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{A5795B7C-A0FD-6EB5-77E5-B070A97A4FE1}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/PlayerController.cs">
+    <Files>
+      <File FileName="Assets/Script/Player.cs" Line="26" Column="10" />
+      <File FileName="Assets/Script/EnemyControllerScript.cs" Line="29" Column="102" />
+      <File FileName="Assets/Script/AtackCreate.cs" Line="5" Column="5" />
+      <File FileName="Assets/Script/BulletController.cs" Line="13" Column="1" />
+      <File FileName="Assets/Script/Persona.cs" Line="64" Column="16" />
+      <File FileName="Assets/Script/PlayerController.cs" Line="56" Column="10" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Elysium" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Script" expanded="True">
+                <Node name="PlayerController.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="7731a3cf-64d1-436a-b582-9f9e678f2b50" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
