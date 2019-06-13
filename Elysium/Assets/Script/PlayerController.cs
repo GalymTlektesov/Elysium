@@ -7,7 +7,13 @@ public class PlayerController : MonoBehaviour
     public float jumpforce; //сила прыжка
     Player Player = new Player();// Объкт нашего персонажа
     public int HP = 100;
-    public GameObject bullet;
+    public Rigidbody2D bullet;
+    
+
+
+    public float HpRegeneretionDelay; // задержка выстерла
+    private float nextHpRegeneretion; //время когда можно стрелять
+
 
 
     void Start()
@@ -23,6 +29,13 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        bool canShoot = Time.time > nextHpRegeneretion;
+
+        if (HP < 100 && canShoot)
+        {
+            HP++;
+            nextHpRegeneretion = Time.time + HpRegeneretionDelay;
+        }
     }
 
 
@@ -31,7 +44,16 @@ public class PlayerController : MonoBehaviour
         Player.Controller(speed, player.transform, jumpforce);// управление движения
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            Instantiate(bullet, transform.position, transform.rotation);
+            if (Player.FlipStatus1 == FlipStatus.Rigth)
+            {
+                Instantiate(bullet, transform.position, Quaternion.Euler(0, 0, 0));
+                bullet.velocity = Vector3.left * 12;
+            }
+            if (Player.FlipStatus1 == FlipStatus.Left)
+            {
+                Instantiate(bullet, transform.position, Quaternion.Euler(0, 180, 0));
+                bullet.velocity = Vector3.right * 12;
+            }
         }
     }
 

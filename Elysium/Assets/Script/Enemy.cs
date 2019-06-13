@@ -5,6 +5,7 @@ public class Enemy : Persona
 {
     Rigidbody2D enemy;
     Rigidbody2D player;
+    new FlipStatus flipStatus;
 
     public Enemy()
     {
@@ -18,7 +19,7 @@ public class Enemy : Persona
 
     public override void Controller(float speed, Transform transform, float jumpforce)
     {
-        if (Math.Abs(enemy.transform.position.x - transform.position.x) < 14)
+        if ((Math.Abs(enemy.transform.position.x - transform.position.x) < 14) && (Math.Abs(enemy.transform.position.x - transform.position.x) > 5))
         {
             enemy.position = Vector3.MoveTowards(enemy.position, new Vector3(transform.position.x, enemy.position.y, 0), 0.2f);
         }
@@ -33,11 +34,13 @@ public class Enemy : Persona
     {
         if (enemy.transform.position.x - player.position.x > 0)
         {
+            flipStatus = FlipStatus.Left;
             enemy.transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
 
         if (enemy.transform.position.x - player.position.x < 0)
         {
+            flipStatus = FlipStatus.Rigth;
             enemy.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
     }

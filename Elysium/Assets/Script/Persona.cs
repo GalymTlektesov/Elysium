@@ -33,10 +33,12 @@ public class Persona
     /// </summary>
     /// <value>The defense.</value>
     private float Defense { get; set; }
-
+    public FlipStatus FlipStatus1 { get; }
     private Transform Position { get; set; }
+
     // Статус нашего объекта
     internal static Status status;
+    public FlipStatus flipStatus;
 
     //конструктор для глобализации
     public Persona()
@@ -53,7 +55,6 @@ public class Persona
         Player = player;
         Atack = atack;
         Defense = defense;
-
     }
 
     //Флипание нашего объекта
@@ -61,10 +62,12 @@ public class Persona
     {
         if (Input.GetAxis("Horizontal") > 0)
         {
+            flipStatus = FlipStatus.Left;
             Position.localRotation = Quaternion.Euler(0, 0, 0);
         }
         if (Input.GetAxis("Horizontal") < 0)
         {
+            flipStatus = FlipStatus.Rigth;
             Position.localRotation = Quaternion.Euler(0, 180, 0);
         }
     }

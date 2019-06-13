@@ -510,8 +510,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7d8f64ac52c4db0bc337ac8b93a046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 698718928}
-  atack: {fileID: 6326433822693045612, guid: 6320e9cf22cc343388e0f24723ea4af6, type: 3}
 --- !u!1 &604670170
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,7 +1069,8 @@ MonoBehaviour:
   speed: 5
   jumpforce: 20
   HP: 100
-  bullet: {fileID: 6326433822693045612, guid: 6320e9cf22cc343388e0f24723ea4af6, type: 3}
+  bullet: {fileID: -58567769226918502, guid: 6320e9cf22cc343388e0f24723ea4af6, type: 3}
+  HpRegeneretionDelay: 1
 --- !u!1 &743805885
 GameObject:
   m_ObjectHideFlags: 0
@@ -2169,7 +2168,9 @@ MonoBehaviour:
   player: {fileID: 698718925}
   speed: 3
   jumpforce: 10
-  bullet: {fileID: 0}
+  bullet: {fileID: -58567769226918502, guid: 6320e9cf22cc343388e0f24723ea4af6, type: 3}
+  ShotCerator: {fileID: 527370591}
+  shotDelay: 1
 --- !u!50 &1614568837
 Rigidbody2D:
   serializedVersion: 4
