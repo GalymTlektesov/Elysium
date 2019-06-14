@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Persona
 {
@@ -36,6 +37,12 @@ public class Persona
     public FlipStatus FlipStatus1 { get; }
     private Transform Position { get; set; }
 
+    /// <summary>
+    /// /Атакующий элемент нашего персонажа
+    /// </summary>
+    /// <value>The bullet.</value>
+    private Rigidbody2D Bullet { get; set; }
+
     // Статус нашего объекта
     internal static Status status;
     public FlipStatus flipStatus;
@@ -46,7 +53,7 @@ public class Persona
 
     }
 
-    public Persona(int hp, float speed, float jumpForce, Transform position, Rigidbody2D player, float atack, float defense)
+    public Persona(int hp, float speed, float jumpForce, Transform position, Rigidbody2D player, float atack, float defense, Rigidbody2D bullet)
     {
         Hp = hp;
         Speed = speed;
@@ -55,19 +62,24 @@ public class Persona
         Player = player;
         Atack = atack;
         Defense = defense;
+        Bullet = bullet;
     }
 
     //Флипание нашего объекта
     public virtual void Flip()
     {
+        //Поворот в право
         if (Input.GetAxis("Horizontal") > 0)
         {
-            flipStatus = FlipStatus.Left;
+            //Поворот нашего персонажа
+            flipStatus = FlipStatus.Rigth;
             Position.localRotation = Quaternion.Euler(0, 0, 0);
         }
+        //Поворот в лево
         if (Input.GetAxis("Horizontal") < 0)
         {
-            flipStatus = FlipStatus.Rigth;
+            //Поворот наншего персонажа
+            flipStatus = FlipStatus.Left;
             Position.localRotation = Quaternion.Euler(0, 180, 0);
         }
     }

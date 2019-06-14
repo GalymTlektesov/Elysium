@@ -1,14 +1,11 @@
 ﻿<Properties StartupConfiguration="{A5795B7C-A0FD-6EB5-77E5-B070A97A4FE1}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/EnemyControllerScript.cs">
     <Files>
-      <File FileName="Assets/Script/EnemyControllerScript.cs" Line="44" Column="48" />
-      <File FileName="Assets/Script/AtackCreate.cs" Line="4" Column="2" />
-      <File FileName="Assets/Script/BulletController.cs" Line="8" Column="36" />
-      <File FileName="Assets/Script/PlayerController.cs" Line="51" Column="14" />
-      <File FileName="Assets/Script/Player.cs" Line="19" Column="30" />
-      <File FileName="Assets/Script/Enemy.cs" Line="17" Column="28" />
-      <File FileName="Assets/Script/Persona.cs" Line="65" Column="42" />
-      <File FileName="Assets/Script/FlipStatus.cs" Line="5" Column="9" />
+      <File FileName="Assets/Script/EnemyControllerScript.cs" Line="17" Column="38" />
+      <File FileName="Assets/Script/BulletController.cs" Line="8" Column="27" />
+      <File FileName="Assets/Script/PlayerController.cs" Line="47" Column="1" />
+      <File FileName="Assets/Script/Enemy.cs" Line="8" Column="29" />
+      <File FileName="Assets/Script/Atack.cs" Line="17" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

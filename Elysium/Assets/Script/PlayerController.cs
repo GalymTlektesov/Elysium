@@ -5,7 +5,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D player;// наш персонаж
     public float speed; // скорость
     public float jumpforce; //сила прыжка
-    Player Player = new Player();// Объкт нашего персонажа
+    public static Player Player = new Player();// Объкт нашего персонажа
     public int HP = 100;
     public Rigidbody2D bullet;
     
@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         player = GetComponent<Rigidbody2D>(); // добавляем компонент
-        Player = new Player(HP, speed, jumpforce, player.transform, player, 35, 25);// добавляем параметры
+        Player = new Player(HP, speed, jumpforce, player.transform, player, 35, 25, bullet);// добавляем параметры
     }
 
     private void Update()
@@ -44,16 +44,7 @@ public class PlayerController : MonoBehaviour
         Player.Controller(speed, player.transform, jumpforce);// управление движения
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            if (Player.FlipStatus1 == FlipStatus.Rigth)
-            {
-                Instantiate(bullet, transform.position, Quaternion.Euler(0, 0, 0));
-                bullet.velocity = Vector3.left * 12;
-            }
-            if (Player.FlipStatus1 == FlipStatus.Left)
-            {
-                Instantiate(bullet, transform.position, Quaternion.Euler(0, 180, 0));
-                bullet.velocity = Vector3.right * 12;
-            }
+
         }
     }
 

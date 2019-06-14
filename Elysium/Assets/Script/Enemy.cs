@@ -11,8 +11,9 @@ public class Enemy : Persona
     {
     }
 
-    public Enemy(int hp, float speed, float jumpForce, Transform position, Rigidbody2D player, float atack, float defense, Rigidbody2D enemy, Player hero) : 
-        base(hp, speed, jumpForce, position, player, atack, defense)
+    public Enemy(int hp, float speed, float jumpForce, Transform position, Rigidbody2D player, 
+        float atack, float defense, Rigidbody2D bullet, Rigidbody2D enemy) : 
+        base(hp, speed, jumpForce, position, player, atack, defense, bullet)
     {
         this.enemy = enemy;
     }
@@ -34,14 +35,16 @@ public class Enemy : Persona
     {
         if (enemy.transform.position.x - player.position.x > 0)
         {
-            flipStatus = FlipStatus.Left;
-            enemy.transform.localRotation = Quaternion.Euler(0, 180, 0);
+            //Поворот наншего персонажа
+            flipStatus = FlipStatus.Rigth;
+            enemy.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
 
         if (enemy.transform.position.x - player.position.x < 0)
         {
-            flipStatus = FlipStatus.Rigth;
-            enemy.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            //Поворот наншего персонажа
+            flipStatus = FlipStatus.Left;
+            enemy.transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
     }
 }

@@ -3,15 +3,17 @@
 public class Player : Persona
 {
     public Rigidbody2D player;
+    private int HP { get; set; }
 
     public Player()// конструктор для глобальной переменной
     {
 
     }
 
-    public Player(int hp, float speed, float jumpForce, Transform position, Rigidbody2D player, float atack, float defense) : 
-        base(hp, speed, jumpForce, position, player, atack, defense)
+    public Player(int hp, float speed, float jumpForce, Transform position, Rigidbody2D player, float atack, float defense, Rigidbody2D bullet) : 
+        base(hp, speed, jumpForce, position, player, atack, defense, bullet)
     {
+        HP = hp;
         this.player = player;
     }
     
@@ -28,4 +30,5 @@ public class Player : Persona
         }
         player.AddForce(transform.up * jumpforce, ForceMode2D.Impulse);
     }
+
 }
