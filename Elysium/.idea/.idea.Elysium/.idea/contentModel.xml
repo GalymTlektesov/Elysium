@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Script" t="Include">
+          <e p="Atack.cs" t="Include" />
+          <e p="BulletController.cs" t="Include" />
+          <e p="Charecter.cs" t="Include" />
+          <e p="Enemy.cs" t="Include" />
+          <e p="EnemyControllerScript.cs" t="Include" />
+          <e p="FlipStatus.cs" t="Include" />
+          <e p="MoveCamera.cs" t="Include" />
+          <e p="Persona.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
+          <e p="PlayerController.cs" t="Include" />
+          <e p="Status.cs" t="Include" />
+          <e p="TrapScript.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Elysium.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp/bin" t="ExcludeRecursive" />
+    </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2019.1/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.1/resharper-host/local/Transient/ReSharperHost/v191/SolutionCaches/_Elysium.-1137116747.00" t="ExcludeRecursive" />
+  </component>
+</project>

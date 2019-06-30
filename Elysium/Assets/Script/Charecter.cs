@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class Charecter : MonoBehaviour
@@ -7,16 +9,23 @@ public class Charecter : MonoBehaviour
     public int Hp = 3;
     public float speed = 4.0f;
     public float jumpforce = 17.0f;
-    public Rigidbody2D charecter;
-    public Animator charAnimator;
-    public SpriteRenderer sprite;
-    bool OnGround;
+    private Rigidbody2D charecter;
+    private Animator charAnimator;
+    private SpriteRenderer sprite;
+
+    public enum Сondition
+    {
+        Air,
+        Earch
+    };
+
+    public Сondition condition;
 
     void Awake()
     {
-        charecter = GetComponentInChildren<Rigidbody2D>();
-        charAnimator = GetComponentInChildren<Animator>();
-        sprite =GetComponentInChildren<SpriteRenderer>();
+        charecter = GetComponent<Rigidbody2D>();
+        charAnimator = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
     }
     void Start()
     {
@@ -41,33 +50,45 @@ public class Charecter : MonoBehaviour
     {
         charecter.AddForce(transform.up * jumpforce, ForceMode2D.Impulse);
     }
-
-    void ChekcGround()
-    {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.5f);
-        OnGround = colliders.Length > 1;
-    }
-
-    void FixedUpdate()
-    {
-        ChekcGround();
-    }
+    
+    
 
     void Update()
     {
         if(Input.GetButton("Horizontal"))
         {
-            Move();
             charAnimator.SetInteger("State", 1);
+            Move();
         }
-        if (Input.GetButton("Jump"))
+        if (Input.GetButton("Jump") && condition == Сondition.Earch)
         {
-            Jump();
+            //charAnimator.SetTrigger("Jump");
             charAnimator.SetInteger("State", 2);
+            Jump();
         }
         if (!Input.anyKey)
         {
+            //charAnimator.ResetTrigger("Jump");
             charAnimator.SetInteger("State", 0);
         }
+
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+    }
+
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "terain")
+        {
+            condition = Сondition.Earch;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        condition = Сondition.Air;
     }
 }

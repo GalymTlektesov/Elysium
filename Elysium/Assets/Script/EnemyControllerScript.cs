@@ -63,6 +63,9 @@ public class EnemyControllerScript : MonoBehaviour
         status = Status.Earch;
     }
 
-    //Проверка на прекращения столкновения двух объктов
-    private void OnCollisionExit2D(Collision2D collision) => status = Status.Air;
+	//Проверка на прекращения столкновения двух объктов
+	private void OnCollisionExit2D(Collision2D collision)
+	{
+		status = Status.Air;
+	}
 }

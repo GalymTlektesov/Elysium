@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class TrapScript : MonoBehaviour
 {
-    private void OnCollisionStay2D(Collision2D collision)
+    public float speed;
+    Transform Trap;
+
+    private void Start()
     {
-        Destroy(gameObject);
+        Trap = GetComponent<Transform>();
+    }
+
+    private void Update()
+    {
+        Trap.rotation = Quaternion.Euler(0, 0, Trap.rotation.z * speed * Time.deltaTime);
     }
 }
