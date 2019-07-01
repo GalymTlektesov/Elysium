@@ -1,13 +1,16 @@
 ﻿<Properties StartupConfiguration="{A5795B7C-A0FD-6EB5-77E5-B070A97A4FE1}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/TrapScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/TrapController.cs">
     <Files>
       <File FileName="Assets/Script/EnemyControllerScript.cs" Line="69" Column="23" />
       <File FileName="Assets/Script/BulletController.cs" />
       <File FileName="Assets/Script/PlayerController.cs" />
       <File FileName="Assets/Script/Enemy.cs" />
       <File FileName="Assets/Script/Atack.cs" />
-      <File FileName="Assets/Script/Charecter.cs" Line="72" Column="43" />
-      <File FileName="Assets/Script/TrapScript.cs" Line="17" Column="34" />
+      <File FileName="Assets/Script/Charecter.cs" />
+      <File FileName="Assets/Script/TrapScript.cs" Line="13" Column="26" />
+      <File FileName="Assets/Script/HpPlayer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/HpPlayer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/TrapController.cs" Line="8" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,7 +22,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="12f11ed6-b7e6-4f13-8f54-346ba19e2275" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="69bd0ab1-d624-461a-9c11-659e89373cb7" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

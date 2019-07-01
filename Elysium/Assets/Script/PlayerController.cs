@@ -2,12 +2,20 @@
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody2D player;// наш персонаж
-    public float speed; // скорость
-    public float jumpforce; //сила прыжка
+    public float speed = 4.0f;
+    public float jumpforce = 17.0f;
+    private Rigidbody2D player;
+    private Animator charAnimator;
+    private SpriteRenderer sprite;
     public static Player Player = new Player();// Объкт нашего персонажа
     public int HP = 100;
     public Rigidbody2D bullet;
+
+    public enum Сondition
+    {
+        Air,
+        Earch
+    };
     
 
 
@@ -19,7 +27,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         player = GetComponent<Rigidbody2D>(); // добавляем компонент
-        Player = new Player(HP, speed, jumpforce, player.transform, player, 35, 25, bullet);// добавляем параметры
+        //Player = new Player(HP, speed, jumpforce, player.transform, player, 35, 25, bullet);// добавляем параметры
     }
 
     private void Update()

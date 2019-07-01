@@ -4,17 +4,26 @@ public class Player : Persona
 {
     public Rigidbody2D player;
     private int HP { get; set; }
+    private Animator CharAnimator;
 
     public Player()// конструктор для глобальной переменной
     {
 
     }
 
-    public Player(int hp, float speed, float jumpForce, Transform position, Rigidbody2D player, float atack, float defense, Rigidbody2D bullet) : 
-        base(hp, speed, jumpForce, position, player, atack, defense, bullet)
+    public Player(int hp, float speed, float jumpForce, Transform position, Rigidbody2D player, 
+    float atack, float defense, Rigidbody2D bullet, SpriteRenderer sprite, Animator charAnimator) : 
+        base(hp, speed, jumpForce, position, player, atack, defense, bullet, sprite, charAnimator)
     {
         HP = hp;
         this.player = player;
+        CharAnimator = charAnimator;
+    }
+
+    public int Hp(int hp)
+    {
+        HP = hp;
+        return HP;
     }
     
     //Управления наш героя

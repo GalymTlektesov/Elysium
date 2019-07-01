@@ -43,17 +43,20 @@ public class Persona
     /// <value>The bullet.</value>
     private Rigidbody2D Bullet { get; set; }
 
+    private SpriteRenderer Sprite { get; set; }
+
     // Статус нашего объекта
     internal static Status status;
     public FlipStatus flipStatus;
 
+    private Animator CharAnimator { get; set; }
+
     //конструктор для глобализации
-    public Persona()
-    {
+    public Persona(){}
 
-    }
-
-    public Persona(int hp, float speed, float jumpForce, Transform position, Rigidbody2D player, float atack, float defense, Rigidbody2D bullet)
+    public Persona(int hp, float speed, float jumpForce, 
+    Transform position, Rigidbody2D player, float atack, 
+    float defense, Rigidbody2D bullet, SpriteRenderer sprite, Animator charAnimator)
     {
         Hp = hp;
         Speed = speed;
@@ -63,6 +66,8 @@ public class Persona
         Atack = atack;
         Defense = defense;
         Bullet = bullet;
+        Sprite = sprite;
+        CharAnimator = charAnimator;
     }
 
     //Флипание нашего объекта
@@ -73,14 +78,14 @@ public class Persona
         {
             //Поворот нашего персонажа
             flipStatus = FlipStatus.Rigth;
-            Position.localRotation = Quaternion.Euler(0, 0, 0);
+            Sprite.flipX = false;
         }
         //Поворот в лево
         if (Input.GetAxis("Horizontal") < 0)
         {
             //Поворот наншего персонажа
             flipStatus = FlipStatus.Left;
-            Position.localRotation = Quaternion.Euler(0, 180, 0);
+            Sprite.flipX = true;
         }
     }
 

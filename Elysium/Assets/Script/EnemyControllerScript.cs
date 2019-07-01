@@ -29,7 +29,7 @@ public class EnemyControllerScript : MonoBehaviour
     private void Start()
     {
         enemy = GetComponent<Rigidbody2D>(); // добавляем компонент
-        Enemy = new Enemy(100, speed, jumpforce, enemy.transform, player, 35, 25, bullet, enemy);// добавляем параметры
+        //Enemy = new Enemy(100, speed, jumpforce, enemy.transform, player, 35, 25, bullet, enemy);// добавляем параметры
         atack = new Atack(speedBullet, Enemy, bullet);
     }
 

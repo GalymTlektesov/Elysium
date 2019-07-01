@@ -12,8 +12,8 @@ public class Enemy : Persona
     }
 
     public Enemy(int hp, float speed, float jumpForce, Transform position, Rigidbody2D player, 
-        float atack, float defense, Rigidbody2D bullet, Rigidbody2D enemy) : 
-        base(hp, speed, jumpForce, position, player, atack, defense, bullet)
+        float atack, float defense, Rigidbody2D bullet, Rigidbody2D enemy, SpriteRenderer sprite, Animator charAnimator) : 
+        base(hp, speed, jumpForce, position, player, atack, defense, bullet, sprite, charAnimator)
     {
         this.enemy = enemy;
     }

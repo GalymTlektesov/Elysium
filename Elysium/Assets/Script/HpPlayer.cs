@@ -5,6 +5,9 @@ public class HpPlayer : MonoBehaviour
 {
     public int Health;
     public Slider slider;
+
+    public float shotDelay; // задержка удара
+    private float nextshot; //время когда удар снова наностится 
     void Start()
     {
         
@@ -18,9 +21,11 @@ public class HpPlayer : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.collider.tag == "Saw")
+        bool canShoot = Time.time > nextshot;
+        if(collision.collider.tag == "Saw" && canShoot)
         {
             Health -= Random.Range(10, 25);
+            nextshot = Time.time + shotDelay;
         }
     }
 }

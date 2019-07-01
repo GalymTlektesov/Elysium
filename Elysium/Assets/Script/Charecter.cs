@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Charecter : MonoBehaviour
 {
-    public int Hp = 3;
     public float speed = 4.0f;
     public float jumpforce = 17.0f;
     private Rigidbody2D charecter;
@@ -26,10 +21,6 @@ public class Charecter : MonoBehaviour
         charecter = GetComponent<Rigidbody2D>();
         charAnimator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
-    }
-    void Start()
-    {
-        
     }
 
     void Move()

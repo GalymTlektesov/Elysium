@@ -2,7 +2,7 @@
 
 public class TrapScript : MonoBehaviour
 {
-    public float speed;
+    float speed;
     Transform Trap;
 
     private void Start()
