@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TrapScript : MonoBehaviour
 {
@@ -14,6 +12,8 @@ public class TrapScript : MonoBehaviour
 
     private void Update()
     {
-        Trap.rotation = Quaternion.Euler(0, 0, Trap.rotation.z * speed * Time.deltaTime);
+        float z = Trap.rotation.z + speed * 10;
+        Trap.rotation = Quaternion.Euler(0, 0, z);
+        speed++;
     }
 }
