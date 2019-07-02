@@ -8,14 +8,6 @@ public class Charecter : MonoBehaviour
     private Animator charAnimator;
     private SpriteRenderer sprite;
 
-    public enum Сondition
-    {
-        Air,
-        Earch
-    };
-
-    public Сondition condition;
-
     void Awake()
     {
         charecter = GetComponent<Rigidbody2D>();
@@ -51,7 +43,7 @@ public class Charecter : MonoBehaviour
             charAnimator.SetInteger("State", 1);
             Move();
         }
-        if (Input.GetButton("Jump") && condition == Сondition.Earch)
+        if (Input.GetButton("Jump") && LegsScript.condition == LegsScript.Сondition.Earch)
         {
             //charAnimator.SetTrigger("Jump");
             charAnimator.SetInteger("State", 2);
@@ -67,19 +59,5 @@ public class Charecter : MonoBehaviour
         {
             Application.Quit();
         }
-    }
-
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.collider.tag == "terain")
-        {
-            condition = Сondition.Earch;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        condition = Сondition.Air;
     }
 }

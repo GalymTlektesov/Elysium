@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HpPlayer : MonoBehaviour
@@ -17,6 +18,10 @@ public class HpPlayer : MonoBehaviour
     void Update()
     {
         slider.value = Health;
+        if (Health < 1)
+        {
+            SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)

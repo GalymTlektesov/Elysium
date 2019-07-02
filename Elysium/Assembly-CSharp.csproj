@@ -69,6 +69,7 @@
     <Compile Include="Assets\Script\EnemyControllerScript.cs" />
     <Compile Include="Assets\Script\FlipStatus.cs" />
     <Compile Include="Assets\Script\HpPlayer.cs" />
+    <Compile Include="Assets\Script\LegsScript.cs" />
     <Compile Include="Assets\Script\MoveCamera.cs" />
     <Compile Include="Assets\Script\Persona.cs" />
     <Compile Include="Assets\Script\Player.cs" />
