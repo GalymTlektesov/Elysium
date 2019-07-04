@@ -7,6 +7,14 @@ public class Charecter : MonoBehaviour
     private Rigidbody2D charecter;
     private Animator charAnimator;
     private SpriteRenderer sprite;
+    float punchX = 0.83f;
+    const float punchY = 0.68f;
+
+
+
+    public Transform punch; // Объект удара нашего героя
+    public float punchDelay; // Задржка удара
+    private float punchNext; // Можно ударить
 
     void Awake()
     {
@@ -22,10 +30,12 @@ public class Charecter : MonoBehaviour
         if (tempVector.x < 0)
         {
             sprite.flipX = true;
+            punchX = -punchX;
         }
         else 
         {
             sprite.flipX = false;
+            punchX = +punchX;
         }
     }
 
@@ -38,23 +48,38 @@ public class Charecter : MonoBehaviour
 
     void Update()
     {
+        // Перемещение право и влево
         if(Input.GetButton("Horizontal"))
         {
             charAnimator.SetInteger("State", 1);
             Move();
         }
+        // Прыжок
         if (Input.GetButton("Jump") && LegsScript.condition == LegsScript.Сondition.Earch)
         {
             //charAnimator.SetTrigger("Jump");
             charAnimator.SetInteger("State", 2);
             Jump();
         }
+
+        //Удар
+        bool canshot = Time.time > punchNext;
+        if (Input.GetKey(KeyCode.Z) && canshot)
+        {
+            charAnimator.SetInteger("State", 3);
+            punchNext = Time.time + punchDelay;
+            Instantiate(punch, new Vector2(transform.position.x + punchX, transform.position.y + punchY), Quaternion.identity);
+        }
+
+
+        // Ничего 
         if (!Input.anyKey)
         {
             //charAnimator.ResetTrigger("Jump");
             charAnimator.SetInteger("State", 0);
         }
 
+        //Выход
         if (Input.GetKey("escape"))
         {
             Application.Quit();

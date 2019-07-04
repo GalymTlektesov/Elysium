@@ -1,9 +1,14 @@
 ﻿<Properties StartupConfiguration="{A5795B7C-A0FD-6EB5-77E5-B070A97A4FE1}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/AutomatScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Charecter.cs">
     <Files>
-      <File FileName="Assets/Script/ShotScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Player.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/AutomatScript.cs" Line="7" Column="12" />
+      <File FileName="Assets/Script/ShotScript.cs" Line="8" Column="6" />
+      <File FileName="Assets/Script/Player.cs" />
+      <File FileName="Assets/Script/AutomatScript.cs" />
+      <File FileName="Assets/Script/LegsScript.cs" Line="16" Column="37" />
+      <File FileName="Assets/HpEnemy.cs" Line="6" Column="1" />
+      <File FileName="Assets/Script/HpPlayer.cs" Line="27" Column="58" />
+      <File FileName="Assets/Script/Charecter.cs" Line="33" Column="23" />
+      <File FileName="Assets/destroyCommand.cs" Line="10" Column="40" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,7 +16,7 @@
           <Node name="Elysium" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Script" expanded="True">
-                <Node name="AutomatScript.cs" selected="True" />
+                <Node name="Charecter.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -21,7 +26,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="69bd0ab1-d624-461a-9c11-659e89373cb7" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="eff1363a-161e-4331-b6ca-8d105c73585e" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

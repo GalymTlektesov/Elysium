@@ -62,6 +62,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\destroyCommand.cs" />
+    <Compile Include="Assets\Prefabs\HpEnemy.cs" />
     <Compile Include="Assets\Script\Atack.cs" />
     <Compile Include="Assets\Script\AutomatScript.cs" />
     <Compile Include="Assets\Script\BulletController.cs" />

@@ -6,7 +6,6 @@ public class ShotScript : MonoBehaviour
     public float speed = 30;
     void Start()
     {
-        Destroy(gameObject, 7);
     }
 
     private void Update()
