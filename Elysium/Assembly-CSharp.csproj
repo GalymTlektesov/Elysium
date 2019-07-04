@@ -62,15 +62,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\destroyCommand.cs" />
-    <Compile Include="Assets\Prefabs\HpEnemy.cs" />
     <Compile Include="Assets\Script\Atack.cs" />
     <Compile Include="Assets\Script\AutomatScript.cs" />
     <Compile Include="Assets\Script\BulletController.cs" />
     <Compile Include="Assets\Script\Charecter.cs" />
+    <Compile Include="Assets\Script\destroyCommand.cs" />
     <Compile Include="Assets\Script\Enemy.cs" />
     <Compile Include="Assets\Script\EnemyControllerScript.cs" />
     <Compile Include="Assets\Script\FlipStatus.cs" />
+    <Compile Include="Assets\Script\HpEnemy.cs" />
     <Compile Include="Assets\Script\HpPlayer.cs" />
     <Compile Include="Assets\Script\LegsScript.cs" />
     <Compile Include="Assets\Script\MoveCamera.cs" />

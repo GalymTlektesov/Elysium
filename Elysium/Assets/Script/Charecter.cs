@@ -10,6 +10,14 @@ public class Charecter : MonoBehaviour
     float punchX = 0.83f;
     const float punchY = 0.68f;
 
+    public enum DirectionPunch
+    {
+        rigth,
+        left
+    }
+
+    DirectionPunch directionPunch;
+
 
 
     public Transform punch; // Объект удара нашего героя
@@ -30,12 +38,12 @@ public class Charecter : MonoBehaviour
         if (tempVector.x < 0)
         {
             sprite.flipX = true;
-            punchX = -punchX;
+            directionPunch = DirectionPunch.left;
         }
         else 
         {
             sprite.flipX = false;
-            punchX = +punchX;
+            directionPunch = DirectionPunch.rigth;
         }
     }
 
@@ -68,7 +76,14 @@ public class Charecter : MonoBehaviour
         {
             charAnimator.SetInteger("State", 3);
             punchNext = Time.time + punchDelay;
-            Instantiate(punch, new Vector2(transform.position.x + punchX, transform.position.y + punchY), Quaternion.identity);
+            if (directionPunch == DirectionPunch.rigth)
+            {
+                Instantiate(punch, new Vector2(transform.position.x + punchX, transform.position.y + punchY), Quaternion.identity);
+            }
+            if (directionPunch == DirectionPunch.left)
+            {
+                Instantiate(punch, new Vector2(transform.position.x - punchX, transform.position.y + punchY), Quaternion.identity);
+            }
         }
 
 
