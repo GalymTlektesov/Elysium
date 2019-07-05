@@ -3,24 +3,15 @@
 
 public class EnemyControllerScript : MonoBehaviour
 {
-    public Rigidbody2D enemy;// наш персонаж
+    Rigidbody2D enemy;// наш персонаж
     public Rigidbody2D player; // наш враг // нужно для слежки за наним героем
     public float speed; // скорость
     public float jumpforce; //сила прыжка
+
+    SpriteRenderer enemySprite;
+    Animator enemyAnim;
     Enemy Enemy = new Enemy();
 
-    public Rigidbody2D bullet;
-
-    public Transform ShotCreator;
-
-
-    public float shotDelay; // задержка выстерла
-    private float nextshot; //время когда можно стрелять
-
-
-    public static float speedBullet = 12;
-
-    public static Atack atack = new Atack();
 
 
     Status status;
@@ -29,23 +20,7 @@ public class EnemyControllerScript : MonoBehaviour
     private void Start()
     {
         enemy = GetComponent<Rigidbody2D>(); // добавляем компонент
-        //Enemy = new Enemy(100, speed, jumpforce, enemy.transform, player, 35, 25, bullet, enemy);// добавляем параметры
-        atack = new Atack(speedBullet, Enemy, bullet);
-    }
-
-    private void Update()
-    {
-        atack.FlipAtatck();
-
-        //Выстрел
-        bool canShoot = Time.time > nextshot;
-        if (canShoot)
-        {
-            nextshot = Time.time + shotDelay;
-            Instantiate(bullet, ShotCreator.position, Quaternion.identity);
-        }
-        //Выстрел
-
+        Enemy = new Enemy(100, speed, jumpforce, enemy.transform, player, enemy,enemySprite, enemyAnim);// добавляем параметры
     }
 
     private void FixedUpdate()
@@ -66,6 +41,6 @@ public class EnemyControllerScript : MonoBehaviour
 	//Проверка на прекращения столкновения двух объктов
 	private void OnCollisionExit2D(Collision2D collision)
 	{
-		status = Status.Air;
+        status = Status.Air;
 	}
 }

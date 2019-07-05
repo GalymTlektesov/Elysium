@@ -62,9 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\Atack.cs" />
     <Compile Include="Assets\Script\AutomatScript.cs" />
-    <Compile Include="Assets\Script\BulletController.cs" />
     <Compile Include="Assets\Script\Charecter.cs" />
     <Compile Include="Assets\Script\destroyCommand.cs" />
     <Compile Include="Assets\Script\Enemy.cs" />

@@ -3,7 +3,7 @@
 public class Player : Persona
 {
     public Rigidbody2D player;
-    private int HP { get; set; }
+    public int HP { get; set; }
     private Animator CharAnimator;
 
     public Player()// конструктор для глобальной переменной
@@ -12,8 +12,8 @@ public class Player : Persona
     }
 
     public Player(int hp, float speed, float jumpForce, Transform position, Rigidbody2D player, 
-    float atack, float defense, Rigidbody2D bullet, SpriteRenderer sprite, Animator charAnimator) : 
-        base(hp, speed, jumpForce, position, player, atack, defense, bullet, sprite, charAnimator)
+        SpriteRenderer sprite, Animator charAnimator) : 
+        base(hp, speed, jumpForce, position, player, sprite, charAnimator)
     {
         HP = hp;
         this.player = player;
@@ -33,11 +33,10 @@ public class Player : Persona
 
         player.velocity = new Vector2(moveHorizontal * speed, player.velocity.y); // движение и скорость движение
 
-        if (!Input.GetKeyDown(KeyCode.Space) || status != Status.Earch)// прыжок
+        if (Input.GetKeyDown(KeyCode.Space) || status != Status.Earch)// прыжок
         {
-            return;
+            player.AddForce(transform.up * jumpforce, ForceMode2D.Impulse);
         }
-        player.AddForce(transform.up * jumpforce, ForceMode2D.Impulse);
     }
 
 }
