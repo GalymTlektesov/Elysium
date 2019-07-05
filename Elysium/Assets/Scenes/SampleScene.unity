@@ -952,8 +952,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 4.66, y: 0}
-  m_SizeDelta: {x: 19.32, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &328635651
 MonoBehaviour:
@@ -1023,10 +1023,10 @@ RectTransform:
   m_Father: {fileID: 963251540}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.25}
+  m_AnchorMin: {x: 0, y: 0.35000002}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 0.11000061, y: -1.8299999}
+  m_SizeDelta: {x: 0.88, y: 3.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &406401999
 PrefabInstance:
@@ -2242,8 +2242,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.099998474, y: 0}
+  m_SizeDelta: {x: 0.89, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &658257638
 MonoBehaviour:
@@ -2388,7 +2388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   shotDelay: 1
-  enemy: {fileID: 1661642501}
+  automat: {fileID: 0}
   bullet: {fileID: 8676572745456309462, guid: 6320e9cf22cc343388e0f24723ea4af6, type: 3}
 --- !u!70 &754934087
 CapsuleCollider2D:
