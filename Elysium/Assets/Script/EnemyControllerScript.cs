@@ -2,7 +2,7 @@
 
 
 public class EnemyControllerScript : MonoBehaviour
-{
+{   
     Rigidbody2D enemy;// наш персонаж
     public Rigidbody2D player; // наш враг // нужно для слежки за наним героем
     public float speed; // скорость
@@ -12,23 +12,22 @@ public class EnemyControllerScript : MonoBehaviour
     Animator enemyAnim;
     Enemy Enemy = new Enemy();
 
-
-
     Status status;
 
 
     private void Start()
     {
         enemy = GetComponent<Rigidbody2D>(); // добавляем компонент
-        Enemy = new Enemy(100, speed, jumpforce, enemy.transform, player, enemy,enemySprite, enemyAnim);// добавляем параметры
+        Enemy = new Enemy(100, enemy.transform, player, enemy, enemySprite, enemyAnim);// добавляем параметры
     }
 
     private void FixedUpdate()
     {
+         Enemy = new Enemy(enemy);
         if (status == Status.Earch)
         {
             Enemy.Flip();
-            Enemy.Controller(speed, player.transform, jumpforce);
+            Enemy.Controller(speed, jumpforce);
         }
     }
 

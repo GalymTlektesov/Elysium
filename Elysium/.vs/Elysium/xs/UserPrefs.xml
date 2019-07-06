@@ -1,13 +1,13 @@
 ﻿<Properties StartupConfiguration="{A5795B7C-A0FD-6EB5-77E5-B070A97A4FE1}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Enemy.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/EnemyControllerScript.cs">
     <Files>
       <File FileName="Assets/Script/ShotScript.cs" Line="9" Column="6" />
       <File FileName="Assets/Script/Player.cs" />
       <File FileName="Assets/Script/Charecter.cs" />
-      <File FileName="Assets/Script/EnemyControllerScript.cs" />
+      <File FileName="Assets/Script/EnemyControllerScript.cs" Line="1" Column="1" />
       <File FileName="Assets/Script/Enemy.cs" Line="37" Column="10" />
       <File FileName="Assets/Script/Persona.cs" />
-      <File FileName="Assets/Script/AutomatScript.cs" Line="20" Column="42" />
+      <File FileName="Assets/Script/AutomatScript.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,7 +15,7 @@
           <Node name="Elysium" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Script" expanded="True">
-                <Node name="Enemy.cs" selected="True" />
+                <Node name="EnemyControllerScript.cs" selected="True" />
               </Node>
             </Node>
           </Node>

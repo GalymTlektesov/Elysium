@@ -12,11 +12,12 @@ public class Enemy : Persona
     {
     }
 
-    public Enemy(int hp, float speed, float jumpForce, Transform position, Rigidbody2D player, 
+    public Enemy(int hp, Transform position, Rigidbody2D player, 
         Rigidbody2D enemy, SpriteRenderer sprite, Animator charAnimator) : 
-        base(hp, speed, jumpForce, position, player, sprite, charAnimator)
+        base(hp, position, player, sprite, charAnimator)
     {
         this.enemy = enemy;
+        this.player = player;
     }
 
     public Enemy(Rigidbody2D enemy)
@@ -24,16 +25,16 @@ public class Enemy : Persona
         this.enemy = enemy;
     }
 
-    public override void Controller(float speed, Transform transform, float jumpforce)
+    public override void Controller(float speed, float jumpforce)
     {
-        if ((Math.Abs(enemy.transform.position.x - transform.position.x) < 14) && (Math.Abs(enemy.transform.position.x - transform.position.x) > 5))
+        if ((Math.Abs(enemy.transform.position.x - player.transform.position.x) < 14) && (Math.Abs(enemy.transform.position.x - player.transform.position.x) > 5))
         {
-            enemy.position = Vector3.MoveTowards(enemy.position, new Vector3(transform.position.x, enemy.position.y, 0), 0.2f);
+            enemy.position = Vector2.MoveTowards(enemy.position, new Vector2(player.transform.position.x, enemy.position.y), speed);
         }
 
-        if (((Math.Abs(transform.position.y - enemy.position.y) > 1.5f) && (Math.Abs(enemy.transform.position.x - transform.position.x) < 14)) && status == Status.Earch)
+        if ((Math.Abs(player.transform.position.y - enemy.position.y) > 1.5f) && (Math.Abs(enemy.transform.position.x - player.transform.position.x) < 14))
         {
-            enemy.AddForce(transform.up * jumpforce, ForceMode2D.Impulse);
+            enemy.AddForce(enemy.transform.up * jumpforce, ForceMode2D.Impulse);
         }
     }
 
@@ -43,14 +44,14 @@ public class Enemy : Persona
         {
             //Поворот наншего персонажа в лево
             flipStatus = FlipStatus.Rigth;
-            enemy.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            enemy.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
         if (enemy.transform.position.x - player.position.x < 0)
         {
             //Поворот наншего персонажа в право
             flipStatus = FlipStatus.Left;
-            enemy.transform.localRotation = Quaternion.Euler(0, 180, 0);
+            enemy.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
 }

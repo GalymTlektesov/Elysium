@@ -44,12 +44,10 @@ public class Persona
     //конструктор для глобализации
     public Persona(){}
 
-    public Persona(int hp, float speed, float jumpForce, 
+    public Persona(int hp, 
     Transform position, Rigidbody2D player, SpriteRenderer sprite, Animator charAnimator)
     {
         Hp = hp;
-        Speed = speed;
-        JumpForce = jumpForce;
         Position = position;
         Player = player;
         Sprite = sprite;
@@ -76,8 +74,10 @@ public class Persona
     }
 
     //Упраление пержонажа
-    public virtual void Controller(float speed, Transform transform, float jumpforce)
+    public virtual void Controller(float speed, float jumpforce)
     {
+        Speed = speed;
+        JumpForce = jumpforce;
         Debug.Log("Atack");
     }
 

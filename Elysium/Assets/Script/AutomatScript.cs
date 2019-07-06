@@ -2,10 +2,9 @@
 
 public class AutomatScript : MonoBehaviour
 {
-    public float speed = 20;
     public float shotDelay;
     private float nextShot;
-    public Transform automat;
+    public Transform shootCreator;
     public Rigidbody2D bullet;
 
 
@@ -14,15 +13,7 @@ public class AutomatScript : MonoBehaviour
         bool canShot = Time.time > nextShot;
         if (canShot)
         {
-            Instantiate(bullet, new Vector2(transform.position.x - 1.3f , transform.position.y), Quaternion.identity);
-            if (automat.rotation == Quaternion.Euler(0, 0, 0))
-            {
-                bullet.velocity = Vector2.left * speed;
-            }
-            if (automat.rotation == Quaternion.Euler(0, 180, 0))
-            {
-                bullet.velocity = Vector2.right * speed;
-            }
+            Instantiate(bullet, new Vector2(shootCreator.position.x , shootCreator.position.y), transform.rotation);
             nextShot = Time.time + shotDelay;
         }
         

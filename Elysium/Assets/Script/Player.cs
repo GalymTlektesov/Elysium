@@ -11,9 +11,9 @@ public class Player : Persona
 
     }
 
-    public Player(int hp, float speed, float jumpForce, Transform position, Rigidbody2D player, 
+    public Player(int hp, Transform position, Rigidbody2D player, 
         SpriteRenderer sprite, Animator charAnimator) : 
-        base(hp, speed, jumpForce, position, player, sprite, charAnimator)
+        base(hp, position, player, sprite, charAnimator)
     {
         HP = hp;
         this.player = player;
@@ -27,7 +27,7 @@ public class Player : Persona
     }
     
     //Управления наш героя
-    public override void Controller(float speed, Transform transform, float jumpforce)
+    public override void Controller(float speed, float jumpforce)
     {
         float moveHorizontal = Input.GetAxis("Horizontal");// горизонтальное перемещение
 
@@ -35,7 +35,7 @@ public class Player : Persona
 
         if (Input.GetKeyDown(KeyCode.Space) || status != Status.Earch)// прыжок
         {
-            player.AddForce(transform.up * jumpforce, ForceMode2D.Impulse);
+            player.AddForce(player.transform.up * jumpforce, ForceMode2D.Impulse);
         }
     }
 

@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         player = GetComponent<Rigidbody2D>(); // добавляем компонент
-        //Player = new Player(HP, speed, jumpforce, player.transform, player, 35, 25, bullet);// добавляем параметры
+        //Player = new Player(HP, player.transform, player, 35, 25, bullet);// добавляем параметры
     }
 
     private void Update()
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Player.Controller(speed, player.transform, jumpforce);// управление движения
+        Player.Controller(speed, jumpforce);// управление движения
         if (Input.GetKeyDown(KeyCode.Z))
         {
 
