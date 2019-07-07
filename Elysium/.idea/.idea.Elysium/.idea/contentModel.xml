@@ -7,6 +7,7 @@
         <e p="Script" t="Include">
           <e p="AutomatScript.cs" t="Include" />
           <e p="Charecter.cs" t="Include" />
+          <e p="Condition.cs" t="Include" />
           <e p="destroyCommand.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
           <e p="EnemyControllerScript.cs" t="Include" />

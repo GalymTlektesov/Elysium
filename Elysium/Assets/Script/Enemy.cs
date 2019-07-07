@@ -5,12 +5,8 @@ public class Enemy : Persona
 {
     Rigidbody2D enemy;
     Rigidbody2D player;
-    new FlipStatus flipStatus;
-    new readonly Status status;
 
-    public Enemy()
-    {
-    }
+    public Enemy() { }
 
     public Enemy(int hp, Transform position, Rigidbody2D player, 
         Rigidbody2D enemy, SpriteRenderer sprite, Animator charAnimator) : 
@@ -18,11 +14,6 @@ public class Enemy : Persona
     {
         this.enemy = enemy;
         this.player = player;
-    }
-
-    public Enemy(Rigidbody2D enemy)
-    {
-        this.enemy = enemy;
     }
 
     public override void Controller(float speed, float jumpforce)
@@ -43,14 +34,12 @@ public class Enemy : Persona
         if (enemy.transform.position.x - player.position.x > 0)
         {
             //Поворот наншего персонажа в лево
-            flipStatus = FlipStatus.Rigth;
             enemy.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
         if (enemy.transform.position.x - player.position.x < 0)
         {
             //Поворот наншего персонажа в право
-            flipStatus = FlipStatus.Left;
             enemy.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }

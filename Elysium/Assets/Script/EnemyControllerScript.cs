@@ -1,18 +1,22 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Diagnostics;
+using UnityEditor.Animations;
+using UnityEngine;
 
 
 public class EnemyControllerScript : MonoBehaviour
 {   
-    Rigidbody2D enemy;// наш персонаж
+    private Rigidbody2D enemy;// наш персонаж
     public Rigidbody2D player; // наш враг // нужно для слежки за наним героем
     public float speed; // скорость
     public float jumpforce; //сила прыжка
 
-    SpriteRenderer enemySprite;
-    Animator enemyAnim;
-    Enemy Enemy = new Enemy();
+    public LegsScript legs;
 
-    Status status;
+    private SpriteRenderer enemySprite;
+    private Animator enemyAnim;
+    private Enemy Enemy = new Enemy();
+    
 
 
     private void Start()
@@ -21,25 +25,12 @@ public class EnemyControllerScript : MonoBehaviour
         Enemy = new Enemy(100, enemy.transform, player, enemy, enemySprite, enemyAnim);// добавляем параметры
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-         Enemy = new Enemy(enemy);
-        if (status == Status.Earch)
+        if (legs.condition == Сondition.Earch)
         {
             Enemy.Flip();
             Enemy.Controller(speed, jumpforce);
         }
     }
-
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        status = Status.Earch;
-    }
-
-	//Проверка на прекращения столкновения двух объктов
-	private void OnCollisionExit2D(Collision2D collision)
-	{
-        status = Status.Air;
-	}
 }

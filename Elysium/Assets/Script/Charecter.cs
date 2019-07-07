@@ -4,6 +4,9 @@ public class Charecter : MonoBehaviour
 {
     public float speed = 4.0f;
     public float jumpforce = 17.0f;
+
+    public LegsScript legs;
+    
     private Rigidbody2D charecter;
     private Animator charAnimator;
     private SpriteRenderer sprite;
@@ -63,7 +66,7 @@ public class Charecter : MonoBehaviour
             Move();
         }
         // Прыжок
-        if (Input.GetButton("Jump") && LegsScript.condition == LegsScript.Сondition.Earch)
+        if (Input.GetButton("Jump") && legs.condition == Сondition.Earch)
         {
             //charAnimator.SetTrigger("Jump");
             charAnimator.SetInteger("State", 2);

@@ -2,13 +2,7 @@
 
 public class LegsScript : MonoBehaviour
 {
-    public enum Сondition
-    {
-        Air,
-        Earch
-    };
-
-    public static Сondition condition;
+    public Сondition condition;
 
 
     private void OnTriggerStay2D(Collider2D collision)
