@@ -12,12 +12,7 @@ public class Charecter : MonoBehaviour
     private SpriteRenderer sprite;
     float punchX = 0.83f;
     const float punchY = 0.68f;
-
-    public enum DirectionPunch
-    {
-        rigth,
-        left
-    }
+    
 
     DirectionPunch directionPunch;
 

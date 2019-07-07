@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class AutomatScript : MonoBehaviour
 {
@@ -6,12 +7,13 @@ public class AutomatScript : MonoBehaviour
     private float nextShot;
     public Transform shootCreator;
     public Rigidbody2D bullet;
+    public EnemyControllerScript Player;
 
 
     void Update()
     {
         bool canShot = Time.time > nextShot;
-        if (canShot)
+        if (canShot && Math.Abs(Player.player.transform.position.x - Player.enemy.transform.position.x) < 14)
         {
             Instantiate(bullet, new Vector2(shootCreator.position.x , shootCreator.position.y), transform.rotation);
             nextShot = Time.time + shotDelay;

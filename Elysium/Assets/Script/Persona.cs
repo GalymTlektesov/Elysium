@@ -44,10 +44,9 @@ public class Persona
     //конструктор для глобализации
     public Persona(){}
 
-    public Persona(int hp, 
+    public Persona( 
     Transform position, Rigidbody2D player, SpriteRenderer sprite, Animator charAnimator)
     {
-        Hp = hp;
         Position = position;
         Player = player;
         Sprite = sprite;
@@ -61,14 +60,12 @@ public class Persona
         if (Input.GetAxis("Horizontal") > 0)
         {
             //Поворот нашего персонажа
-            flipStatus = FlipStatus.Rigth;
             Sprite.flipX = false;
         }
         //Поворот в лево
         if (Input.GetAxis("Horizontal") < 0)
         {
             //Поворот наншего персонажа
-            flipStatus = FlipStatus.Left;
             Sprite.flipX = true;
         }
     }

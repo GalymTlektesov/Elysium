@@ -9,6 +9,7 @@
           <e p="Charecter.cs" t="Include" />
           <e p="Condition.cs" t="Include" />
           <e p="destroyCommand.cs" t="Include" />
+          <e p="DirectionPunch.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
           <e p="EnemyControllerScript.cs" t="Include" />
           <e p="FlipStatus.cs" t="Include" />

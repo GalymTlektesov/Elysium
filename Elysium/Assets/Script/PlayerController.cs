@@ -1,79 +1,62 @@
-﻿using UnityEngine;
+﻿using System.Diagnostics;
+using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 4.0f;
-    public float jumpforce = 17.0f;
+    public float speed;
+    public float jumpforce;
     private Rigidbody2D player;
+    
     private Animator charAnimator;
     private SpriteRenderer sprite;
     public static Player Player = new Player();// Объкт нашего персонажа
-    public int HP = 100;
-    public Rigidbody2D bullet;
-
-    public enum Сondition
-    {
-        Air,
-        Earch
-    };
     
+    
+    float punchX = 0.83f;
+    const float punchY = 0.68f;
+    
+    public LegsScript legs;
 
-
-    public float HpRegeneretionDelay; // задержка выстерла
-    private float nextHpRegeneretion; //время когда можно стрелять
-
-
+    DirectionPunch directionPunch;
+    
+    public Transform punch; // Объект удара нашего героя
+    public float punchDelay; // Задржка удара
+    private float punchNext; // Можно ударить
 
     void Start()
     {
         player = GetComponent<Rigidbody2D>(); // добавляем компонент
-        //Player = new Player(HP, player.transform, player, 35, 25, bullet);// добавляем параметры
+        Player = new Player(player.transform, player, sprite, charAnimator);// добавляем параметры
     }
 
     private void Update()
     {
+        Player PLayer = new Player(directionPunch);
         Player.Flip();// флипаем если нужно
-        if (HP < 1)
-        {
-            Destroy(gameObject);
-        }
-        bool canShoot = Time.time > nextHpRegeneretion;
-
-        if (HP < 100 && canShoot)
-        {
-            HP++;
-            nextHpRegeneretion = Time.time + HpRegeneretionDelay;
-        }
     }
 
 
     private void FixedUpdate()
     {
-        Player.Controller(speed, jumpforce);// управление движения
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (legs.condition == Сondition.Earch)
         {
-
+            Player.Controller(speed, jumpforce); // управление движения
         }
-    }
 
-
-    // Проверка на столкновения двух объктов
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        Persona.status = Status.Earch;
-    }
-
-    //Проверка на прекращения столкновения двух объктов
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        Persona.status = Status.Air;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "EnemyAtack")
+        //Удар
+        bool canshot = Time.time > punchNext;
+        if (Input.GetKey(KeyCode.Z) && canshot)
         {
-            HP -= Random.Range(10, 25);
+            charAnimator.SetInteger("State", 3);
+            punchNext = Time.time + punchDelay;
+            if (directionPunch == DirectionPunch.rigth)
+            {
+                Instantiate(punch, new Vector2(transform.position.x + punchX, transform.position.y + punchY), Quaternion.identity);
+            }
+            if (directionPunch == DirectionPunch.left)
+            {
+                Instantiate(punch, new Vector2(transform.position.x - punchX, transform.position.y + punchY), Quaternion.identity);
+            }
         }
     }
 

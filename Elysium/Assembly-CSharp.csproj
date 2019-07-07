@@ -69,6 +69,7 @@
     <Compile Include="Assets\Script\Charecter.cs" />
     <Compile Include="Assets\Script\Condition.cs" />
     <Compile Include="Assets\Script\destroyCommand.cs" />
+    <Compile Include="Assets\Script\DirectionPunch.cs" />
     <Compile Include="Assets\Script\Enemy.cs" />
     <Compile Include="Assets\Script\EnemyControllerScript.cs" />
     <Compile Include="Assets\Script\FlipStatus.cs" />

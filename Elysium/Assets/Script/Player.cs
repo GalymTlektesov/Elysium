@@ -3,29 +3,48 @@
 public class Player : Persona
 {
     public Rigidbody2D player;
-    public int HP { get; set; }
-    private Animator CharAnimator;
+    private Animator charAnimator;
+    private DirectionPunch Punch;
+    private SpriteRenderer sprite;
 
     public Player()// конструктор для глобальной переменной
     {
 
     }
 
-    public Player(int hp, Transform position, Rigidbody2D player, 
+    public Player( Transform position, Rigidbody2D player, 
         SpriteRenderer sprite, Animator charAnimator) : 
-        base(hp, position, player, sprite, charAnimator)
+        base(position, player, sprite, charAnimator)
     {
-        HP = hp;
         this.player = player;
-        CharAnimator = charAnimator;
+        this.charAnimator = charAnimator;
+        this.sprite = sprite;
     }
 
-    public int Hp(int hp)
+    public Player(DirectionPunch punch)
     {
-        HP = hp;
-        return HP;
+        Punch = punch;
     }
-    
+
+    public override void Flip()
+    {
+        //Поворот в право
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            //Поворот нашего персонажа
+            Punch = DirectionPunch.rigth;
+            sprite.flipX = false;
+        }
+        //Поворот в лево
+        if (Input.GetAxis("Horizontal") < 0)
+        {
+            //Поворот наншего персонажа
+            sprite.flipX = true;
+            Punch = DirectionPunch.left;
+        }
+    }
+
+
     //Управления наш героя
     public override void Controller(float speed, float jumpforce)
     {
@@ -33,9 +52,27 @@ public class Player : Persona
 
         player.velocity = new Vector2(moveHorizontal * speed, player.velocity.y); // движение и скорость движение
 
-        if (Input.GetKeyDown(KeyCode.Space) || status != Status.Earch)// прыжок
+
+        // Прыжок
+        if (Input.GetButton("Jump"))
         {
+            //charAnimator.SetTrigger("Jump");
+            charAnimator.SetInteger("State", 2);
             player.AddForce(player.transform.up * jumpforce, ForceMode2D.Impulse);
+        }
+
+
+        // Ничего 
+        if (!Input.anyKey)
+        {
+            //charAnimator.ResetTrigger("Jump");
+            charAnimator.SetInteger("State", 0);
+        }
+
+        //Выход
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
         }
     }
 

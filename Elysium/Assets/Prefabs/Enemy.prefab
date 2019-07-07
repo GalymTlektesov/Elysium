@@ -59,7 +59,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1462743135324031620}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 34.09263, y: 0.3, z: 0}
+  m_LocalPosition: {x: 34.122, y: -0.401, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1462743136577293504}
@@ -175,6 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
+  shotDelay: 1
 --- !u!114 &1462743135324031618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   speed: 0.3
-  jumpforce: 10
+  jumpforce: 15
   legs: {fileID: 1978727154034410253}
 --- !u!1 &1462743136577293505
 GameObject:
@@ -255,6 +256,7 @@ MonoBehaviour:
   shotDelay: 1
   shootCreator: {fileID: 1800540600}
   bullet: {fileID: 8676572745456309462, guid: 6320e9cf22cc343388e0f24723ea4af6, type: 3}
+  Player: {fileID: 1462743135324031618}
 --- !u!1 &2390901579354323536
 GameObject:
   m_ObjectHideFlags: 0
