@@ -6,11 +6,19 @@ using Random = UnityEngine.Random;
 
 public class HpPlayer : MonoBehaviour
 {
-    public int Health;
+    private static int health;
     public Slider slider;
 
     public float shotDelay; // задержка удара
     private float nextshot; //время когда удар снова наностится 
+
+    public static int Health { get => health; set => health = value; }
+
+
+    private void Start() 
+    {
+        health = 100;
+    }
 
     // Update is called once per frame
     void Update()

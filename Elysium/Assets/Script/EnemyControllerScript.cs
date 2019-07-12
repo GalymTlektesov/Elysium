@@ -1,7 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using UnityEditor.Animations;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 public class EnemyControllerScript : MonoBehaviour
@@ -32,6 +29,7 @@ public class EnemyControllerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         if (legs.condition == Сondition.Earch)
         {
             Enemy.Controller(speed, jumpforce);

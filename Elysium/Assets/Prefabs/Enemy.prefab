@@ -175,6 +175,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
+  hpPlayer: {fileID: 7993291087469259976, guid: e62979e12496e426e9b04d3fd427a179,
+    type: 3}
   shotDelay: 1
 --- !u!114 &1462743135324031618
 MonoBehaviour:
@@ -188,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec18bcbb6e7fb4f7f87676bbeb89272b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 7993291087469259981, guid: e62979e12496e426e9b04d3fd427a179, type: 3}
   speed: 0.3
   jumpforce: 15
   legs: {fileID: 1978727154034410253}

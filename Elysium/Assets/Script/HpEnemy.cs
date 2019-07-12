@@ -11,6 +11,7 @@ public class HpEnemy : MonoBehaviour
     {
         if (Health < 1)
         {
+            HpPlayer.Health += 25;
             Destroy(gameObject);
         }
     }
