@@ -13645,6 +13645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lazer: {fileID: 2111595269643410413, guid: 925c268b4c212488b9d9dc256d8e9c16, type: 3}
+  shotDelay: 4
 --- !u!212 &1952667268
 SpriteRenderer:
   m_ObjectHideFlags: 0

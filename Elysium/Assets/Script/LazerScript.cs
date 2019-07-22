@@ -1,25 +1,20 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LazerScript : MonoBehaviour
 {
     public Transform Lazer;
-    void Start()
-    {
-        Lazer = GetComponent<Transform>();
-    }
+    
+    public float shotDelay;
+    private float nextShot;
 
     private void Update()
     {
-        StartCoroutine(LazerSpawn());
+        bool canShot = Time.time > nextShot;
+        if (canShot)
+        {
+            Instantiate(Lazer, transform.position, Quaternion.identity);
+            nextShot = Time.time + shotDelay;
+        }
     }
 
-    IEnumerator LazerSpawn()
-    {
-        Instantiate(Lazer, transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(4);
-    }
-    
 }
