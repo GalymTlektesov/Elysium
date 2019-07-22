@@ -5,11 +5,12 @@ public class Charecter : MonoBehaviour
     public float speed = 4.0f;
     public float jumpforce = 17.0f;
 
-    public LegsScript legs;
+    public LegsPlayerScipt legs;
     
     private Rigidbody2D charecter;
     private Animator charAnimator;
     private SpriteRenderer sprite;
+    public int AnimNumber;
     float punchX = 0.83f;
     const float punchY = 0.68f;
     
@@ -49,22 +50,55 @@ public class Charecter : MonoBehaviour
     {
         charecter.AddForce(transform.up * jumpforce, ForceMode2D.Impulse);
     }
+
+    void Punch()
+    {
+        punchNext = Time.time + punchDelay;
+        if (directionPunch == DirectionPunch.rigth)
+        {
+            Instantiate(punch, new Vector2(transform.position.x + punchX, transform.position.y + punchY), Quaternion.identity);
+        }
+        if (directionPunch == DirectionPunch.left)
+        {
+            Instantiate(punch, new Vector2(transform.position.x - punchX, transform.position.y + punchY), Quaternion.identity);
+        }
+    }
     
     
 
     void Update()
     {
-        // Перемещение право и влево
+        charAnimator.SetInteger("State", AnimNumber);
+
+
+        // Ничего 
+        if (!Input.anyKey)
+        {
+            //charAnimator.ResetTrigger("Jump");
+            AnimNumber = 0;
+        }
+    }
+
+    private void FixedUpdate() 
+    {
+         // Перемещение право и влево
         if(Input.GetButton("Horizontal"))
         {
-            charAnimator.SetInteger("State", 1);
+            AnimNumber = 1;
             Move();
         }
+
         // Прыжок
-        if (Input.GetButton("Jump") && legs.condition == Сondition.Earch)
+        if (Input.GetButtonUp("Jump") && legs.condition == СondPlayer.Earch)
         {
             //charAnimator.SetTrigger("Jump");
-            charAnimator.SetInteger("State", 2);
+            AnimNumber = 2;
+            Jump();
+        }
+        if (Input.GetButtonDown("Jump") && legs.condition == СondPlayer.AirOne)
+        {
+            AnimNumber = 2;
+            legs.condition = СondPlayer.AirTwo;
             Jump();
         }
 
@@ -72,30 +106,8 @@ public class Charecter : MonoBehaviour
         bool canshot = Time.time > punchNext;
         if (Input.GetKey(KeyCode.Z) && canshot)
         {
-            charAnimator.SetInteger("State", 3);
-            punchNext = Time.time + punchDelay;
-            if (directionPunch == DirectionPunch.rigth)
-            {
-                Instantiate(punch, new Vector2(transform.position.x + punchX, transform.position.y + punchY), Quaternion.identity);
-            }
-            if (directionPunch == DirectionPunch.left)
-            {
-                Instantiate(punch, new Vector2(transform.position.x - punchX, transform.position.y + punchY), Quaternion.identity);
-            }
-        }
-
-
-        // Ничего 
-        if (!Input.anyKey)
-        {
-            //charAnimator.ResetTrigger("Jump");
-            charAnimator.SetInteger("State", 0);
-        }
-
-        //Выход
-        if (Input.GetKey("escape"))
-        {
-            Application.Quit();
+            AnimNumber = 3;
+            Punch();
         }
     }
 }

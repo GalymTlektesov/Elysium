@@ -8,6 +8,9 @@ TagManager:
   - terain
   - Saw
   - punch
+  - GameOver
+  - Mine
+  - Lazer
   layers:
   - Default
   - TransparentFX

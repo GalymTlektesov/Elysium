@@ -8,6 +8,7 @@
           <e p="AutomatScript.cs" t="Include" />
           <e p="Charecter.cs" t="Include" />
           <e p="Condition.cs" t="Include" />
+          <e p="CondPlayer.cs" t="Include" />
           <e p="destroyCommand.cs" t="Include" />
           <e p="DirectionPunch.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
@@ -16,13 +17,19 @@
           <e p="FlipStatus.cs" t="Include" />
           <e p="HpEnemy.cs" t="Include" />
           <e p="HpPlayer.cs" t="Include" />
+          <e p="LazerScript.cs" t="Include" />
+          <e p="LazerShot.cs" t="Include" />
+          <e p="LegsPlayerScipt.cs" t="Include" />
           <e p="LegsScript.cs" t="Include" />
+          <e p="MineScript.cs" t="Include" />
           <e p="MoveCamera.cs" t="Include" />
           <e p="Persona.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="ShotScript.cs" t="Include" />
           <e p="Status.cs" t="Include" />
+          <e p="TaskScript.cs" t="Include" />
+          <e p="TrampetScript.cs" t="Include" />
           <e p="TrapController.cs" t="Include" />
           <e p="TrapScript.cs" t="Include" />
         </e>
