@@ -11,14 +11,13 @@ GameObject:
   - component: {fileID: 6473274727392954103}
   - component: {fileID: 6473274727392954102}
   - component: {fileID: 6473274727392954101}
-  - component: {fileID: 6473274727392954096}
   - component: {fileID: 6473274727392954097}
   m_Layer: 0
   m_Name: trumpet2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6473274727392954103
 Transform:
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 6473274727392954100}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.65, y: 0.42, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: -1.0323371, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -70,7 +69,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 101a099fe32b4473db59c9c8678fa8bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -95,38 +94,19 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.020748377, y: -0.062244415}
+  m_Offset: {x: -0.056070447, y: -0.27417517}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
+    oldSize: {x: 5.714286, y: 5.714286}
     newSize: {x: 4, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.4646306, y: 3.1009102}
+  m_Size: {x: 3.2417085, y: 3.5247717}
   m_EdgeRadius: 0
---- !u!95 &6473274727392954096
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6473274727392954100}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5225d17a5982747a3a7e32274383b6ac, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &6473274727392954097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,3 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cca9e4a54bfa4126aa4bb87b100147b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TrampetSprite:
+  - {fileID: 21300000, guid: 101a099fe32b4473db59c9c8678fa8bf, type: 3}
+  - {fileID: 21300000, guid: 5ad828fffb3624aba8b6ec0603bcce2c, type: 3}

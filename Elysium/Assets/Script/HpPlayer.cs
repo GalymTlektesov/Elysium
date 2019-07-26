@@ -44,7 +44,7 @@ public class HpPlayer : MonoBehaviour
         if (collision.collider.CompareTag("Lazer") && canShoot)
         {
             Health -= Random.Range(5, 10);
-            nextshot = Time.time + shotDelay;
+            nextshot = Time.time + (shotDelay / 2);
         }
     }
 

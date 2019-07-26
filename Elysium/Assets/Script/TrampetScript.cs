@@ -5,26 +5,30 @@ using UnityEngine;
 
 public class TrampetScript : MonoBehaviour
 {
-    private Animator trampetAnim;
+    private SpriteRenderer sprite;
+
+    public Sprite[] TrampetSprite = new Sprite[2];
     void Start()
     {
-        trampetAnim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            trampetAnim.SetBool("Motion", true);
+            other.isTrigger = true;
+            sprite.sprite = TrampetSprite[1];
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            trampetAnim.SetBool("Motion", false);
+            sprite.sprite = TrampetSprite[0];
+            other.isTrigger = false;
         }
     }
 }

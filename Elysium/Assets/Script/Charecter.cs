@@ -89,7 +89,7 @@ public class Charecter : MonoBehaviour
         }
 
         // Прыжок
-        if (Input.GetButtonUp("Jump") && legs.condition == СondPlayer.Earch)
+        if (Input.GetButton("Jump") && legs.condition == СondPlayer.Earch)
         {
             //charAnimator.SetTrigger("Jump");
             AnimNumber = 2;

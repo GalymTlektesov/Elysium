@@ -13,13 +13,17 @@ public class EnemyControllerScript : MonoBehaviour
     private SpriteRenderer enemySprite;
     private Animator enemyAnim;
     private Enemy Enemy = new Enemy();
+
+    public AutomatScript auto;
     
 
 
     private void Start()
     {
+        auto = GetComponentInChildren<AutomatScript>();
         enemy = GetComponent<Rigidbody2D>(); // добавляем компонент
         Enemy = new Enemy(enemy.transform, player, enemy, enemySprite, enemyAnim);// добавляем параметры
+        Enemy = new Enemy(enemyAnim, "EnemyState");
     }
 
     private void Update()
@@ -29,7 +33,7 @@ public class EnemyControllerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+        Enemy.Atack = auto.Atack;
         if (legs.condition == Сondition.Earch)
         {
             Enemy.Controller(speed, jumpforce);
