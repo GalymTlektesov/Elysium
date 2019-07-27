@@ -81,6 +81,12 @@ public class Charecter : MonoBehaviour
 
     private void FixedUpdate() 
     {
+        if (!charecter.simulated && Input.GetButton("Vertical"))
+        {
+            Vector3 tempVector = Vector3.up * Input.GetAxis("Vertical");
+            transform.position = Vector3.MoveTowards(transform.position, transform.position + tempVector, speed * Time.deltaTime);
+        }
+        
          // Перемещение право и влево
         if(Input.GetButton("Horizontal"))
         {
@@ -108,6 +114,22 @@ public class Charecter : MonoBehaviour
         {
             AnimNumber = 3;
             Punch();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("trumpet"))
+        {
+            charecter.simulated = false;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("trumpet"))
+        {
+            charecter.simulated = true;
         }
     }
 }

@@ -11,6 +11,8 @@ TagManager:
   - GameOver
   - Mine
   - Lazer
+  - Terain
+  - trumpet
   layers:
   - Default
   - TransparentFX

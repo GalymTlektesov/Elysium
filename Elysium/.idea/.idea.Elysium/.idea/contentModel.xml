@@ -32,6 +32,7 @@
           <e p="TrampetScript.cs" t="Include" />
           <e p="TrapController.cs" t="Include" />
           <e p="TrapScript.cs" t="Include" />
+          <e p="WallTrumpetScript.cs" t="Include" />
         </e>
       </e>
       <e p="Elysium.sln" t="IncludeFlat" />
