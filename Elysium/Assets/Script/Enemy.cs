@@ -8,6 +8,8 @@ public class Enemy : Persona
     private Animator EnemyAnim;
     private string NameAnim { get; set; }
     public bool Atack;
+    
+    private bool motion;
 
     public Enemy() { }
 
@@ -27,34 +29,39 @@ public class Enemy : Persona
 
     public override void Controller(float speed, float jumpforce)
     {
-        bool motion;
+        //Проверка движения
         motion = false;
+        //Координаты врага
+        var enemyX = enemy.transform.position.x;
+        var enemyY = enemy.position.y;
+        
+        //Наши координаты
+        var position1 = player.transform.position;
+        var playerY = position1.y;
+        var playerX = position1.x;
+        
         //Прыжок
-        if (player.transform.position.y - enemy.position.y > 1.5f && Math.Abs(enemy.transform.position.x - player.transform.position.x) < 14
-                                                                      && player.transform.position.y - enemy.position.y < 3)
+        if (playerY - enemyY > 1.5f && Math.Abs(enemyX - playerX) < 14 && playerY - enemyY < 3)
         {
             enemy.AddForce(enemy.transform.up * jumpforce, ForceMode2D.Impulse);
         }
         // Преследования
-        if (Math.Abs(enemy.transform.position.x - player.transform.position.x) < 14 && Math.Abs(enemy.transform.position.x - player.transform.position.x) > 12)
+        if (Math.Abs(enemyX - playerX) < 14 && Math.Abs(enemyX - playerX) > 12)
         {
             var position = enemy.position;
-            enemy.position = Vector2.MoveTowards(position, new Vector2(player.transform.position.x, position.y), speed);
+            enemy.position = Vector2.MoveTowards(position, new Vector2(playerX, position.y), speed);
             EnemyAnim.SetInteger(NameAnim, 2);
             motion = true;
-            Debug.Log("Преследование");
         }
 
         if (Atack)
         {
             EnemyAnim.SetInteger(NameAnim, 1);
             motion = true;
-            Debug.Log("Atack");
         }
         if (!motion)
         {
             EnemyAnim.SetInteger(NameAnim, 0);
-            Debug.Log("Ничего");
         }
         //Отскок в право
         /* if (((enemy.transform.position.x - player.transform.position.x) < 2) && (Math.Abs(enemy.transform.position.y - player.transform.position.y) < 1))

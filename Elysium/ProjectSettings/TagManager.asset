@@ -13,6 +13,7 @@ TagManager:
   - Lazer
   - Terain
   - trumpet
+  - dont_trumpet
   layers:
   - Default
   - TransparentFX

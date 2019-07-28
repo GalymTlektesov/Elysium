@@ -20,8 +20,12 @@ public class EnemyControllerScript : MonoBehaviour
 
     private void Start()
     {
+        enemyAnim = GetComponent<Animator>();
+        enemySprite = GetComponent<SpriteRenderer>();
         auto = GetComponentInChildren<AutomatScript>();
         enemy = GetComponent<Rigidbody2D>(); // добавляем компонент
+        
+        
         Enemy = new Enemy(enemy.transform, player, enemy, enemySprite, enemyAnim);// добавляем параметры
         Enemy = new Enemy(enemyAnim, "EnemyState");
     }

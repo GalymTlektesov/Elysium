@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Saw
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2545653227785897373
 Transform:
@@ -125,7 +125,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2545653229202313950
 Transform:
@@ -154,6 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 247f9e8803a8a4c97b2b6a3dae2edb63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yStay: 0
+  yExit: 0
 --- !u!61 &2545653229202313949
 BoxCollider2D:
   m_ObjectHideFlags: 0

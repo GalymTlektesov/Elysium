@@ -9,6 +9,7 @@
           <e p="Charecter.cs" t="Include" />
           <e p="Condition.cs" t="Include" />
           <e p="CondPlayer.cs" t="Include" />
+          <e p="DamageScript.cs" t="Include" />
           <e p="destroyCommand.cs" t="Include" />
           <e p="DirectionPunch.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
@@ -29,6 +30,7 @@
           <e p="ShotScript.cs" t="Include" />
           <e p="Status.cs" t="Include" />
           <e p="TaskScript.cs" t="Include" />
+          <e p="TerainScript.cs" t="Include" />
           <e p="TrampetScript.cs" t="Include" />
           <e p="TrapController.cs" t="Include" />
           <e p="TrapScript.cs" t="Include" />

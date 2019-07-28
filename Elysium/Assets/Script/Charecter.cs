@@ -1,66 +1,72 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Charecter : MonoBehaviour
 {
     public float speed = 4.0f;
-    public float jumpforce = 17.0f;
+    public float jumpforce = 20.0f;
+    private float _trueJumpforce;
 
     public LegsPlayerScipt legs;
     
-    private Rigidbody2D charecter;
-    private Animator charAnimator;
-    private SpriteRenderer sprite;
-    public int AnimNumber;
+    private Rigidbody2D _charecter;
+    private Animator _charAnimator;
+    private SpriteRenderer _sprite;
+    [FormerlySerializedAs("AnimNumber")] public int animNumber;
     float punchX = 0.83f;
-    const float punchY = 0.68f;
+    const float PunchY = 0.68f;
     
 
-    DirectionPunch directionPunch;
+    DirectionPunch _directionPunch;
 
 
 
     public Transform punch; // Объект удара нашего героя
     public float punchDelay; // Задржка удара
-    private float punchNext; // Можно ударить
+    private float _punchNext; // Можно ударить
 
     void Awake()
     {
-        charecter = GetComponent<Rigidbody2D>();
-        charAnimator = GetComponent<Animator>();
-        sprite = GetComponent<SpriteRenderer>();
+        _charecter = GetComponent<Rigidbody2D>();
+        _charAnimator = GetComponent<Animator>();
+        _sprite = GetComponent<SpriteRenderer>();
+        _trueJumpforce = jumpforce;
     }
 
     void Move()
     {
         Vector3 tempVector = Vector3.right * Input.GetAxis("Horizontal");
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + tempVector, speed * Time.deltaTime);
+        var position = transform.position;
+        position = Vector3.MoveTowards(position, position + tempVector, speed * Time.deltaTime);
+        transform.position = position;
         if (tempVector.x < 0)
         {
-            sprite.flipX = true;
-            directionPunch = DirectionPunch.left;
+            _sprite.flipX = true;
+            _directionPunch = DirectionPunch.left;
         }
         else 
         {
-            sprite.flipX = false;
-            directionPunch = DirectionPunch.rigth;
+            _sprite.flipX = false;
+            _directionPunch = DirectionPunch.rigth;
         }
     }
 
     void Jump()
     {
-        charecter.AddForce(transform.up * jumpforce, ForceMode2D.Impulse);
+        _charecter.AddForce(transform.up * jumpforce, ForceMode2D.Impulse);
     }
 
     void Punch()
     {
-        punchNext = Time.time + punchDelay;
-        if (directionPunch == DirectionPunch.rigth)
+        _punchNext = Time.time + punchDelay;
+        if (_directionPunch == DirectionPunch.rigth)
         {
-            Instantiate(punch, new Vector2(transform.position.x + punchX, transform.position.y + punchY), Quaternion.identity);
+            Instantiate(punch, new Vector2(transform.position.x + punchX, transform.position.y + PunchY), Quaternion.identity);
         }
-        if (directionPunch == DirectionPunch.left)
+        if (_directionPunch == DirectionPunch.left)
         {
-            Instantiate(punch, new Vector2(transform.position.x - punchX, transform.position.y + punchY), Quaternion.identity);
+            Instantiate(punch, new Vector2(transform.position.x - punchX, transform.position.y + PunchY), Quaternion.identity);
         }
     }
     
@@ -68,29 +74,31 @@ public class Charecter : MonoBehaviour
 
     void Update()
     {
-        charAnimator.SetInteger("State", AnimNumber);
+        _charAnimator.SetInteger("State", animNumber);
 
 
         // Ничего 
         if (!Input.anyKey)
         {
             //charAnimator.ResetTrigger("Jump");
-            AnimNumber = 0;
+            animNumber = 0;
         }
     }
 
     private void FixedUpdate() 
     {
-        if (!charecter.simulated && Input.GetButton("Vertical"))
+        if (!_charecter.simulated && Input.GetButton("Vertical"))
         {
             Vector3 tempVector = Vector3.up * Input.GetAxis("Vertical");
-            transform.position = Vector3.MoveTowards(transform.position, transform.position + tempVector, speed * Time.deltaTime);
+            var position = transform.position;
+            position = Vector3.MoveTowards(position, position + tempVector, speed * Time.deltaTime);
+            transform.position = position;
         }
         
-         // Перемещение право и влево
+        // Перемещение право и влево
         if(Input.GetButton("Horizontal"))
         {
-            AnimNumber = 1;
+            animNumber = 1;
             Move();
         }
 
@@ -98,38 +106,35 @@ public class Charecter : MonoBehaviour
         if (Input.GetButton("Jump") && legs.condition == СondPlayer.Earch)
         {
             //charAnimator.SetTrigger("Jump");
-            AnimNumber = 2;
+            animNumber = 2;
             Jump();
         }
         if (Input.GetButtonDown("Jump") && legs.condition == СondPlayer.AirOne)
         {
-            AnimNumber = 2;
+            animNumber = 2;
             legs.condition = СondPlayer.AirTwo;
             Jump();
         }
 
         //Удар
-        bool canshot = Time.time > punchNext;
+        bool canshot = Time.time > _punchNext;
         if (Input.GetKey(KeyCode.Z) && canshot)
         {
-            AnimNumber = 3;
+            animNumber = 3;
             Punch();
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("trumpet"))
         {
-            charecter.simulated = false;
+            jumpforce = 3.0f;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("trumpet"))
-        {
-            charecter.simulated = true;
-        }
+        jumpforce = _trueJumpforce;
     }
 }

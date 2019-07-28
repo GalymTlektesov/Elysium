@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 3919871088181236344}
   - component: {fileID: 7965736575662107491}
   - component: {fileID: 1235091891192800201}
+  - component: {fileID: 1549023342466080688}
   m_Layer: 0
   m_Name: tarain7
   m_TagString: terain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3919871088181236344
 Transform:
@@ -91,5 +92,17 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.218566, y: 2.0770302, z: 0.2}
-  m_Center: {x: 0.06867778, y: -0.7382822, z: 0}
+  m_Size: {x: 1.218566, y: 2.351862, z: 0.2}
+  m_Center: {x: 0.06867778, y: -0.6008663, z: 0}
+--- !u!114 &1549023342466080688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9165424768894548743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48eb075bd927a4f8c80c89554532d692, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

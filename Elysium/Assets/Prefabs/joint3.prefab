@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 7821869406706275939}
   - component: {fileID: 4161442848835857284}
   - component: {fileID: 1122413829215164657}
+  - component: {fileID: 7074300715583630005}
   m_Layer: 0
   m_Name: joint3
-  m_TagString: Untagged
+  m_TagString: terain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7821869406706275939
 Transform:
@@ -93,6 +94,18 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.05, y: -2.97}
+  m_Offset: {x: -0.05, y: -0.18}
   serializedVersion: 2
   m_Radius: 0.5803473
+--- !u!114 &7074300715583630005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610087917549222172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48eb075bd927a4f8c80c89554532d692, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
