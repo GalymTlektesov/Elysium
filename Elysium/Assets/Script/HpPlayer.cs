@@ -61,7 +61,7 @@ public class HpPlayer : MonoBehaviour
     {
         if (collision.tag == "EnemyAtack")
         {
-            Health -= Random.Range(10, 20);
+            Health -= Random.Range(0, 3);
         }
         if (collision.tag == "GameOver")
         {

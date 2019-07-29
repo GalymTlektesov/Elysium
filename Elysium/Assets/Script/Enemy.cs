@@ -11,6 +11,8 @@ public class Enemy : Persona
     
     private bool motion;
 
+    public int animNumber;
+
     public Enemy() { }
 
     public Enemy(Transform position, Rigidbody2D player, 
@@ -19,12 +21,6 @@ public class Enemy : Persona
     {
         this.enemy = enemy;
         this.player = player;
-    }
-    
-    public Enemy(Animator enemyAnim, string nameAnim)
-    {
-        NameAnim = nameAnim;
-        EnemyAnim = enemyAnim;
     }
 
     public override void Controller(float speed, float jumpforce)
@@ -46,22 +42,22 @@ public class Enemy : Persona
             enemy.AddForce(enemy.transform.up * jumpforce, ForceMode2D.Impulse);
         }
         // Преследования
-        if (Math.Abs(enemyX - playerX) < 14 && Math.Abs(enemyX - playerX) > 12)
+        if (Math.Abs(enemyX - playerX) > 12 && Math.Abs(enemyX - playerX) < 14)
         {
             var position = enemy.position;
             enemy.position = Vector2.MoveTowards(position, new Vector2(playerX, position.y), speed);
-            EnemyAnim.SetInteger(NameAnim, 2);
+            animNumber = 2;
             motion = true;
         }
 
         if (Atack)
         {
-            EnemyAnim.SetInteger(NameAnim, 1);
+            animNumber = 1;
             motion = true;
         }
         if (!motion)
         {
-            EnemyAnim.SetInteger(NameAnim, 0);
+            animNumber = 0;
         }
         //Отскок в право
         /* if (((enemy.transform.position.x - player.transform.position.x) < 2) && (Math.Abs(enemy.transform.position.y - player.transform.position.y) < 1))

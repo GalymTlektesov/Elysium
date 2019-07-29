@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1800540600
 Transform:
@@ -190,11 +190,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec18bcbb6e7fb4f7f87676bbeb89272b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 7993291087469259981, guid: e62979e12496e426e9b04d3fd427a179, type: 3}
+  player: {fileID: 0}
   speed: 0.3
   jumpforce: 15
   legs: {fileID: 1978727154034410253}
-  auto: {fileID: 0}
+  auto: {fileID: 1462743136577293507}
 --- !u!95 &5095556251789117451
 Animator:
   serializedVersion: 3
@@ -230,7 +230,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1462743136577293504
 Transform:
@@ -275,11 +275,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c9b9190c2604eaeb991a6e9770f65b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotDelay: 1
+  shotDelay: 0.05
   shootCreator: {fileID: 1800540600}
   bullet: {fileID: 8676572745456309462, guid: 6320e9cf22cc343388e0f24723ea4af6, type: 3}
-  Player: {fileID: 1462743135324031618}
-  Atack: 0
+  Enemy: {fileID: 1462743135324031618}
+  atack: 1
+  doubleShotDelay: 2
 --- !u!1 &2390901579354323536
 GameObject:
   m_ObjectHideFlags: 0

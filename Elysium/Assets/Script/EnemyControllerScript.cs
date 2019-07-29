@@ -15,29 +15,30 @@ public class EnemyControllerScript : MonoBehaviour
     private Enemy Enemy = new Enemy();
 
     public AutomatScript auto;
-    
 
 
-    private void Start()
+    private void Awake()
     {
         enemyAnim = GetComponent<Animator>();
         enemySprite = GetComponent<SpriteRenderer>();
         auto = GetComponentInChildren<AutomatScript>();
-        enemy = GetComponent<Rigidbody2D>(); // добавляем компонент
-        
-        
+        enemy = GetComponent<Rigidbody2D>(); // добавляем компоненты
+    }
+
+    private void Start()
+    {
         Enemy = new Enemy(enemy.transform, player, enemy, enemySprite, enemyAnim);// добавляем параметры
-        Enemy = new Enemy(enemyAnim, "EnemyState");
     }
 
     private void Update()
     {
+        enemyAnim.SetInteger("EnemyState", Enemy.animNumber);
+        Enemy.Atack = auto.atack;
         Enemy.Flip();
     }
 
     private void FixedUpdate()
     {
-        Enemy.Atack = auto.Atack;
         if (legs.condition == Сondition.Earch)
         {
             Enemy.Controller(speed, jumpforce);
