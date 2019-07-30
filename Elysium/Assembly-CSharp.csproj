@@ -94,6 +94,7 @@
     <Compile Include="Assets\Script\TrampetScript.cs" />
     <Compile Include="Assets\Script\TrapController.cs" />
     <Compile Include="Assets\Script\TrapScript.cs" />
+    <Compile Include="Assets\Script\unstableScript.cs" />
     <Compile Include="Assets\Script\WallTrumpetScript.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/user/Desktop/Admin/Elysium/Elysium/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
