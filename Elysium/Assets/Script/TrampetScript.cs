@@ -14,10 +14,24 @@ public class TrampetScript : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (!other.CompareTag("terain"))
+        if (other.CompareTag("terain"))
+        {
+            return;
+        }
+        else if (other.CompareTag("wall"))
+        {
+            return;
+        }
+        else if (other.CompareTag("trumpet"))
+        {
+            return;
+        }
+        else
         {
             gameObject.tag = "trumpet";
+            Debug.Log(other.tag);
         }
+
         if (other.CompareTag("Player"))
         {
             sprite.sprite = TrampetSprite[1];

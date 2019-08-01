@@ -30,5 +30,11 @@ public class ShotScript : MonoBehaviour
             return;
         }
         Destroy(gameObject);
+        
+        
+        if (collision.CompareTag("Wall"))
+        {
+            bullet.tag = "terain";
+        }
     }
 }

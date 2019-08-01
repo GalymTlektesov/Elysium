@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 1978727154034410253}
   m_Layer: 0
   m_Name: Legs
-  m_TagString: Untagged
+  m_TagString: terain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
