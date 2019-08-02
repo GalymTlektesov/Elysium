@@ -29,11 +29,11 @@ public class TrampetScript : MonoBehaviour
         else
         {
             gameObject.tag = "trumpet";
-            Debug.Log(other.tag);
         }
 
         if (other.CompareTag("Player"))
         {
+            sprite.sortingOrder = 1;
             sprite.sprite = TrampetSprite[1];
         }
     }
@@ -43,6 +43,7 @@ public class TrampetScript : MonoBehaviour
         gameObject.tag = "dont_trumpet";
         if (other.CompareTag("Player"))
         {
+            sprite.sortingOrder = 3;
             sprite.sprite = TrampetSprite[0];
         }
     }
