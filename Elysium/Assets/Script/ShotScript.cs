@@ -25,7 +25,11 @@ public class ShotScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("trumpet") || collision.CompareTag("terain"))
+        if (collision.CompareTag("trumpet"))
+        {
+            return;
+        }
+        if (collision.CompareTag("terain") && collision.isTrigger)
         {
             return;
         }

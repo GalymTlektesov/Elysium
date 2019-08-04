@@ -13,8 +13,8 @@ public class Player : Persona
     }
 
     public Player( Transform position, Rigidbody2D player, 
-        SpriteRenderer sprite, Animator charAnimator) : 
-        base(position, player, sprite, charAnimator)
+        SpriteRenderer sprite) : 
+        base(position, player, sprite)
     {
         this.player = player;
         this.charAnimator = charAnimator;

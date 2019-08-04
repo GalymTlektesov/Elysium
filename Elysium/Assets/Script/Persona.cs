@@ -6,12 +6,6 @@ public class Persona
 {
     private Rigidbody2D Player;
     /// <summary>
-    /// Жизни персонажа
-    /// </summary>
-    /// <value>The hp.</value>
-    private int Hp { get; set; }
-
-    /// <summary>
     /// Скорость персонажа
     /// </summary>
     /// <value>The speed.</value>
@@ -28,16 +22,11 @@ public class Persona
     /// </summary>
     /// <value>The atack.</value>
     /// 
-    public FlipStatus FlipStatus1 { get; }
 
     private Transform Position { get; set; }
 
 
     private SpriteRenderer Sprite { get; set; }
-
-    // Статус нашего объекта
-    internal static Status status;
-    public FlipStatus flipStatus;
 
     private Animator CharAnimator { get; set; }
 
@@ -45,12 +34,11 @@ public class Persona
     public Persona(){}
 
     public Persona( 
-    Transform position, Rigidbody2D player, SpriteRenderer sprite, Animator charAnimator)
+    Transform position, Rigidbody2D player, SpriteRenderer sprite)
     {
         Position = position;
         Player = player;
         Sprite = sprite;
-        CharAnimator = charAnimator;
     }
 
     //Флипание нашего объекта

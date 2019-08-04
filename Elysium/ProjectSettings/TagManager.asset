@@ -15,6 +15,7 @@ TagManager:
   - trumpet
   - dont_trumpet
   - wall
+  - dont'lazer
   layers:
   - Default
   - TransparentFX

@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -26,7 +25,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         player = GetComponent<Rigidbody2D>(); // добавляем компонент
-        Player = new Player(player.transform, player, sprite, charAnimator);// добавляем параметры
+        Player = new Player(player.transform, player, sprite);// добавляем параметры
     }
 
     private void Update()

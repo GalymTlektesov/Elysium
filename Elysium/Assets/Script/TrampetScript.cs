@@ -33,7 +33,7 @@ public class TrampetScript : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            sprite.sortingOrder = 1;
+            sprite.sortingOrder = -1;
             sprite.sprite = TrampetSprite[1];
         }
     }

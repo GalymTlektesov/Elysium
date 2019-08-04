@@ -22,12 +22,12 @@ public class TrapController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Trap.position = Vector2.MoveTowards(Trap.position, new Vector2(Trap.position.x, yStay), 3);
+        Trap.position = Vector2.MoveTowards(Trap.position, new Vector2(Trap.position.x, yStay), 2);
     }
 
     //Проверка на прекращения столкновения двух объктов
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Trap.position = Vector2.MoveTowards(Trap.position, new Vector2(Trap.position.x, yExit), 3);
+        Trap.position = Vector2.MoveTowards(Trap.position, new Vector2(Trap.position.x, yExit), 2);
     }
 }

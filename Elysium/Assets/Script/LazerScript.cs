@@ -12,6 +12,7 @@ public class LazerScript : MonoBehaviour
         bool canShot = Time.time > nextShot;
         if (canShot)
         {
+            Lazer.localScale = transform.localScale;
             Instantiate(Lazer, transform.position, Quaternion.identity);
             nextShot = Time.time + shotDelay;
         }

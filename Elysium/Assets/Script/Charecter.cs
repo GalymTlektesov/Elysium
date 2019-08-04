@@ -15,7 +15,7 @@ public class Charecter : MonoBehaviour
     private SpriteRenderer _sprite;
     [FormerlySerializedAs("AnimNumber")] public int animNumber;
     float punchX = 0.83f;
-    const float PunchY = 0.68f;
+    const float PunchY = 1f;
     
 
     DirectionPunch _directionPunch;

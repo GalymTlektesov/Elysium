@@ -27,7 +27,7 @@ public class EnemyControllerScript : MonoBehaviour
 
     private void Start()
     {
-        Enemy = new Enemy(enemy.transform, player, enemy, enemySprite, enemyAnim);// добавляем параметры
+        Enemy = new Enemy(enemy.transform, player, enemy, enemySprite);// добавляем параметры
     }
 
     private void Update()
