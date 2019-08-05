@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 1717482943}
   m_Layer: 0
   m_Name: trumpet1
-  m_TagString: Untagged
+  m_TagString: dont_trumpet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

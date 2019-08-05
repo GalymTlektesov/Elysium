@@ -26,6 +26,10 @@ public class TrampetScript : MonoBehaviour
         {
             return;
         }
+        else if (other.CompareTag("dont_trumpet"))
+        {
+            return;
+        }
         else
         {
             gameObject.tag = "trumpet";

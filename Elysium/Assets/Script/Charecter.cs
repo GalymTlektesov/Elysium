@@ -52,9 +52,9 @@ public class Charecter : MonoBehaviour
         }
     }
 
-    void Jump()
+    void Jump(float jump)
     {
-        _charecter.AddForce(transform.up * jumpforce, ForceMode2D.Impulse);
+        _charecter.AddForce(transform.up * jump, ForceMode2D.Impulse);
     }
 
     void Punch()
@@ -107,13 +107,13 @@ public class Charecter : MonoBehaviour
         {
             //charAnimator.SetTrigger("Jump");
             animNumber = 2;
-            Jump();
+            Jump(jumpforce);
         }
         if (Input.GetButtonDown("Jump") && legs.condition == СondPlayer.AirOne)
         {
             animNumber = 2;
             legs.condition = СondPlayer.AirTwo;
-            Jump();
+            Jump(jumpforce / 2);
         }
 
         //Удар

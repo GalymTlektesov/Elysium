@@ -29,6 +29,10 @@ public class ShotScript : MonoBehaviour
         {
             return;
         }
+        if (collision.CompareTag("dont_trumpet"))
+        {
+            return;
+        }
         if (collision.CompareTag("terain") && collision.isTrigger)
         {
             return;
