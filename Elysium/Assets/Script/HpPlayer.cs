@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -14,6 +13,7 @@ public class HpPlayer : MonoBehaviour
 
     public static int Health { get => health; set => health = value; }
 
+    public static int DeathPlayer;
 
     private void Start() 
     {
@@ -26,6 +26,7 @@ public class HpPlayer : MonoBehaviour
         slider.value = Health;
         if (Health < 1)
         {
+            DeathPlayer++;
             SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
             TaskScript.Kill = 0;
             //time.Time = 0;
@@ -66,6 +67,16 @@ public class HpPlayer : MonoBehaviour
         if (collision.tag == "GameOver")
         {
             Health -= 10000;
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        bool canShoot = Time.time > nextshot;
+        if (canShoot && other.CompareTag("Acid"))
+        {
+            Health -= Random.Range(25, 50);
+            nextshot = Time.time + shotDelay;
         }
     }
 

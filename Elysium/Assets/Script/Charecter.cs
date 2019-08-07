@@ -8,6 +8,8 @@ public class Charecter : MonoBehaviour
     public float jumpforce = 20.0f;
     private float _trueJumpforce;
 
+    public GameObject fire;
+
     public LegsPlayerScipt legs;
     
     private Rigidbody2D _charecter;
@@ -69,6 +71,19 @@ public class Charecter : MonoBehaviour
             Instantiate(punch, new Vector2(transform.position.x - punchX, transform.position.y + PunchY), Quaternion.identity);
         }
     }
+
+    private void Fire()
+    {
+        _punchNext = Time.time + punchDelay;
+        if (_directionPunch == DirectionPunch.rigth)
+        {
+            Instantiate(fire, new Vector2(transform.position.x + punchX, transform.position.y + PunchY), Quaternion.Euler(0, 180, 0));
+        }
+        if (_directionPunch == DirectionPunch.left)
+        {
+            Instantiate(fire, new Vector2(transform.position.x - punchX, transform.position.y + PunchY), Quaternion.Euler(0, 0, 0));
+        }
+    }
     
     
 
@@ -122,6 +137,12 @@ public class Charecter : MonoBehaviour
         {
             animNumber = 3;
             Punch();
+        }
+
+        if (Input.GetKey(KeyCode.X) && canshot)
+        {
+            animNumber = 3;
+            Fire();
         }
     }
 

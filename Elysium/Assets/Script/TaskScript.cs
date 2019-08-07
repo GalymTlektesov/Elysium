@@ -8,7 +8,6 @@ public class TaskScript : MonoBehaviour
     public static int Kill;
     public int task;
 
-    // Update is called once per frame
     void Update()
     {
         if (Kill == task)

@@ -6,6 +6,7 @@ public class MoveCamera : MonoBehaviour
     public Transform player;
     private Transform camera;
 
+    public HpPlayer death;
     private float pause;
 
     public float x = 3.2f;
@@ -16,6 +17,14 @@ public class MoveCamera : MonoBehaviour
     {
         camera = GetComponent<Transform>();
         pause = 0.5f;
+        if (HpPlayer.DeathPlayer < 1)
+        {
+            camera.position = new Vector3(164.62f, -6.4f, -10f);
+        }
+        else
+        {
+            camera.position = new Vector3(player.position.x + x, player.position.y + y, -10);
+        }
     }
 
     private void Update()

@@ -65,6 +65,7 @@
      <Compile Include="Assets\Script\Enemy.cs" />
      <Compile Include="Assets\Script\EnemyControllerScript.cs" />
      <Compile Include="Assets\Script\EyesScript.cs" />
+     <Compile Include="Assets\Script\FireScript.cs" />
      <Compile Include="Assets\Script\FlipStatus.cs" />
      <Compile Include="Assets\Script\HpEnemy.cs" />
      <Compile Include="Assets\Script\HpPlayer.cs" />

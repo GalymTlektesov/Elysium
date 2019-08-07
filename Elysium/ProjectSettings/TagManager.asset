@@ -16,6 +16,8 @@ TagManager:
   - dont_trumpet
   - wall
   - dont'lazer
+  - Acid
+  - Fire
   layers:
   - Default
   - TransparentFX

@@ -13,7 +13,7 @@ public class LazerScript : MonoBehaviour
         if (canShot)
         {
             Lazer.localScale = transform.localScale;
-            Instantiate(Lazer, transform.position, Quaternion.identity);
+            Instantiate(Lazer, transform.position, transform.rotation);
             nextShot = Time.time + shotDelay;
         }
     }

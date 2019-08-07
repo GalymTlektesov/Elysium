@@ -30,9 +30,19 @@ public class HpEnemy : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         
-        if (collision.collider.tag == "punch")
+        if (collision.collider.CompareTag("punch"))
         {
             Health -= Random.Range(20, 35);
+        }
+        
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        bool canShoot = Time.time > nextshot;
+        if (other.CompareTag("Fire"))
+        {
+            Health -= Random.Range(25, 37);
         }
     }
 }
