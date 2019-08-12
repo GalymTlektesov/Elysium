@@ -1,44 +1,75 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.UIElements;
+﻿using UnityEngine;
 
 public class Persona
 {
-    private Rigidbody2D Player;
+    /// <summary>
+    /// Физический объект нашего персонажа
+    /// </summary>
+    protected Rigidbody2D Player;
+
     /// <summary>
     /// Скорость персонажа
     /// </summary>
     /// <value>The speed.</value>
-    private float Speed { get; set; }
+    protected float Speed
+    {
+        get => Speed;
+        set
+        {
+            if (Speed > 20)
+            {
+                Speed = 20;
+            }
+            if (Speed < 0.1f)
+            {
+                Speed = 0.1f;
+            }
+            else
+            {
+                Speed = value;
+            }
+        }
+    }
 
     /// <summary>
     /// Сила прыжка
     /// </summary>
     /// <value>The jump force.</value>
-    private float JumpForce { get; set; }
+    protected float JumpForce
+    {
+        get => JumpForce;
+        set
+        {
+            if (JumpForce > 25)
+            {
+                JumpForce = 25;
+            }
+            if (JumpForce < 5f)
+            {
+                JumpForce = 5f;
+            }
+            else
+            {
+                JumpForce = value;
+            }
+        }
+    }
 
     /// <summary>
-    /// Наносимый урон от нашего персонажа
+    /// Позиция нашего персонажа
     /// </summary>
-    /// <value>The atack.</value>
-    /// 
+    protected Transform Position { get;}
 
-    private Transform Position { get; set; }
-
-
-    private SpriteRenderer Sprite { get; set; }
-
-    private Animator CharAnimator { get; set; }
+    public int animNumber;
 
     //конструктор для глобализации
-    public Persona(){}
+    public Persona() { }
 
     public Persona( 
-    Transform position, Rigidbody2D player, SpriteRenderer sprite)
+    Transform position, Rigidbody2D player)
     {
         Position = position;
         Player = player;
-        Sprite = sprite;
     }
 
     //Флипание нашего объекта
@@ -48,13 +79,11 @@ public class Persona
         if (Input.GetAxis("Horizontal") > 0)
         {
             //Поворот нашего персонажа
-            Sprite.flipX = false;
         }
         //Поворот в лево
         if (Input.GetAxis("Horizontal") < 0)
         {
             //Поворот наншего персонажа
-            Sprite.flipX = true;
         }
     }
 
@@ -63,7 +92,6 @@ public class Persona
     {
         Speed = speed;
         JumpForce = jumpforce;
-        Debug.Log("Atack");
     }
 
 }

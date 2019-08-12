@@ -2,28 +2,26 @@
 
 public class Player : Persona
 {
-    public Rigidbody2D player;
-    private Animator charAnimator;
-    private DirectionPunch Punch;
-    private SpriteRenderer sprite;
+    private DirectionPunch punch;
 
-    public Player()// конструктор для глобальной переменной
+    private DirectionPunch GetPunch()
     {
-
+        return punch;
     }
 
-    public Player( Transform position, Rigidbody2D player, 
-        SpriteRenderer sprite) : 
-        base(position, player, sprite)
+    private void SetPunch(DirectionPunch value)
     {
-        this.player = player;
-        this.charAnimator = charAnimator;
-        this.sprite = sprite;
+        punch = value;
     }
 
-    public Player(DirectionPunch punch)
+    public Player() { }
+
+
+    public Player( Transform position, Rigidbody2D player, DirectionPunch punch) : 
+        base(position, player)
     {
-        Punch = punch;
+        Player = player;
+        SetPunch(punch);
     }
 
     public override void Flip()
@@ -32,15 +30,15 @@ public class Player : Persona
         if (Input.GetAxis("Horizontal") > 0)
         {
             //Поворот нашего персонажа
-            Punch = DirectionPunch.rigth;
-            sprite.flipX = false;
+            SetPunch(DirectionPunch.rigth);
+            Position.rotation = Quaternion.Euler(0, 0, 0);
         }
         //Поворот в лево
         if (Input.GetAxis("Horizontal") < 0)
         {
             //Поворот наншего персонажа
-            sprite.flipX = true;
-            Punch = DirectionPunch.left;
+            Position.rotation = Quaternion.Euler(0, 180, 0);
+            SetPunch(DirectionPunch.left);
         }
     }
 
@@ -48,17 +46,21 @@ public class Player : Persona
     //Управления наш героя
     public override void Controller(float speed, float jumpforce)
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");// горизонтальное перемещение
+        Speed = speed;
 
-        player.velocity = new Vector2(moveHorizontal * speed, player.velocity.y); // движение и скорость движение
+        JumpForce = jumpforce;
 
-
+        if (Input.GetButton("Horizontal"))
+        {
+            Move(Speed);
+            animNumber = 1;
+        }
         // Прыжок
         if (Input.GetButton("Jump"))
         {
             //charAnimator.SetTrigger("Jump");
-            charAnimator.SetInteger("State", 2);
-            player.AddForce(player.transform.up * jumpforce, ForceMode2D.Impulse);
+            Player.AddForce(Player.transform.up * JumpForce, ForceMode2D.Impulse);
+            animNumber = 2;
         }
 
 
@@ -66,14 +68,18 @@ public class Player : Persona
         if (!Input.anyKey)
         {
             //charAnimator.ResetTrigger("Jump");
-            charAnimator.SetInteger("State", 0);
+            animNumber = 0;
         }
+    }
 
-        //Выход
-        if (Input.GetKey("escape"))
-        {
-            Application.Quit();
-        }
+
+
+    private void Move(float speed)
+    {
+        Vector3 tempVector = Vector3.right * Input.GetAxis("Horizontal");
+        var position = Position.position;
+        position = Vector3.MoveTowards(position, position + tempVector, speed * Time.deltaTime);
+        Position.position = position;
     }
 
 }
