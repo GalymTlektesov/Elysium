@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2111595269643410413}
   - component: {fileID: 6246048133014759878}
-  - component: {fileID: 9178525319044872722}
   - component: {fileID: 7017561005570111419}
+  - component: {fileID: 4934313499591585830}
   m_Layer: 0
   m_Name: Lazer2
   m_TagString: Lazer
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9205173664375247802}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.77, y: 0.44, z: 0}
+  m_LocalPosition: {x: 15.68, y: 0.44, z: 0}
   m_LocalScale: {x: 0.612, y: 1.1619508, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ceb384b22b2d34450abf3d05e3e4aad9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8771621ca967e4fdf87cfabde8174d56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -81,18 +81,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9178525319044872722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9205173664375247802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0566d742fac984bd5a15e0757f480afc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &7017561005570111419
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -119,3 +107,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5209255, y: 4}
   m_EdgeRadius: 0
+--- !u!114 &4934313499591585830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9205173664375247802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1824c4ff83c724849b73e389c27ee3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeDeath: 2

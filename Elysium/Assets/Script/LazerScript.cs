@@ -3,9 +3,9 @@
 public class LazerScript : MonoBehaviour
 {
     public Transform Lazer;
-    
     public float shotDelay;
     private float nextShot;
+
 
     private void Update()
     {

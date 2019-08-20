@@ -68,6 +68,10 @@ public class HpPlayer : MonoBehaviour
         {
             Health -= 10000;
         }
+        if (collision.CompareTag("explosion"))
+        {
+            Health -= Random.Range(10, 50);
+        }
     }
 
     void OnTriggerStay2D(Collider2D other)

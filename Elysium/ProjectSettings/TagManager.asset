@@ -18,6 +18,7 @@ TagManager:
   - dont'lazer
   - Acid
   - Fire
+  - explosion
   layers:
   - Default
   - TransparentFX
