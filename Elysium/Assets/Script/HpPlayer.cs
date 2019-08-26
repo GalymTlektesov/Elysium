@@ -5,24 +5,29 @@ using Random = UnityEngine.Random;
 
 public class HpPlayer : MonoBehaviour
 {
-    private static int health;
+    private static float health;
     public Slider slider;
+    public Image image;
+
 
     public float shotDelay; // задержка удара
     private float nextshot; //время когда удар снова наностится 
 
-    public static int Health { get => health; set => health = value; }
+    public static float Health { get => health; set => health = value; }
 
-    public static int DeathPlayer;
+    private float _maxHealth;
+    public static int DeathPlayer = 2;
 
     private void Start() 
     {
         health = 100;
+        _maxHealth = Health;
     }
 
     // Update is called once per frame
     void Update()
     {
+        image.color = Color.Lerp(Color.red, Color.green, Health / _maxHealth);
         slider.value = Health;
         if (Health < 1)
         {
