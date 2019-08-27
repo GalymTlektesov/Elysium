@@ -70,13 +70,17 @@
      <Compile Include="Assets\Script\LazerShot.cs" />
      <Compile Include="Assets\Script\LegsPlayerScipt.cs" />
      <Compile Include="Assets\Script\LegsScript.cs" />
+     <Compile Include="Assets\Script\MessageScript.cs" />
      <Compile Include="Assets\Script\MineScript.cs" />
      <Compile Include="Assets\Script\MoveCamera.cs" />
+     <Compile Include="Assets\Script\MoveScript.cs" />
      <Compile Include="Assets\Script\Persona.cs" />
      <Compile Include="Assets\Script\Player.cs" />
      <Compile Include="Assets\Script\PlayerController.cs" />
+     <Compile Include="Assets\Script\PositionScript.cs" />
      <Compile Include="Assets\Script\PunchScript.cs" />
      <Compile Include="Assets\Script\PunchScript1.cs" />
+     <Compile Include="Assets\Script\SaveScript.cs" />
      <Compile Include="Assets\Script\ShotScript.cs" />
      <Compile Include="Assets\Script\Status.cs" />
      <Compile Include="Assets\Script\TaskScript.cs" />
