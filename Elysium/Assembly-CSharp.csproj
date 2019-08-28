@@ -59,11 +59,13 @@
      <Compile Include="Assets\Script\Charecter.cs" />
      <Compile Include="Assets\Script\Condition.cs" />
      <Compile Include="Assets\Script\CondPlayer.cs" />
+     <Compile Include="Assets\Script\DamageScript.cs" />
      <Compile Include="Assets\Script\destroyCommand.cs" />
      <Compile Include="Assets\Script\DirectionPunch.cs" />
      <Compile Include="Assets\Script\Enemy.cs" />
      <Compile Include="Assets\Script\EnemyControllerScript.cs" />
      <Compile Include="Assets\Script\FlipStatus.cs" />
+     <Compile Include="Assets\Script\HealthScript.cs" />
      <Compile Include="Assets\Script\HpEnemy.cs" />
      <Compile Include="Assets\Script\HpPlayer.cs" />
      <Compile Include="Assets\Script\LazerScript.cs" />

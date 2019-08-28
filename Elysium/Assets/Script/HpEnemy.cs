@@ -3,7 +3,7 @@
 public class HpEnemy : MonoBehaviour
 {
     public int Health = 100;
-    public GameObject Bomb;
+    public GameObject Loot;
     
     public float shotDelay; // задержка удара
     private float nextshot; //время когда удар снова наностится
@@ -15,7 +15,7 @@ public class HpEnemy : MonoBehaviour
             HpPlayer.Health += 5;
             TaskScript.Kill++;
             Destroy(gameObject);
-            Instantiate(Bomb, transform.position, Quaternion.identity);
+            Instantiate(Loot, transform.position, Quaternion.identity);
         }
     }
     

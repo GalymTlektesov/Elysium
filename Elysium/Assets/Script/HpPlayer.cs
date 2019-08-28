@@ -43,55 +43,44 @@ public class HpPlayer : MonoBehaviour
         bool canShoot = Time.time > nextshot;
         if (collision.collider.CompareTag("Saw") && canShoot)
         {
-            Health -= Random.Range(10, 25);
+            var demage = collision.collider.GetComponent<DamageScript>();
+            Health -= demage.Damage();
             nextshot = Time.time + shotDelay;
         }
 
         if (collision.collider.CompareTag("Lazer") && canShoot)
         {
-            Health -= Random.Range(5, 10);
+            var demage = collision.collider.GetComponent<DamageScript>();
+            Health -= demage.Damage();
             nextshot = Time.time + (shotDelay / 2);
         }
-    }
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Mine"))
-        {
-            Invoke("Explosion", 0.2f);
-        }   
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "EnemyAtack")
         {
-            Health -= Random.Range(0, 3);
+            var demage = collision.GetComponent<DamageScript>();
+            Health -= demage.Damage();
         }
-        if (collision.tag == "GameOver")
+        if(collision.CompareTag("Hp"))
         {
-            Health -= 10000;
-        }
-        if (collision.CompareTag("explosion"))
-        {
-            Health -= Random.Range(10, 50);
+            var plus = collision.GetComponent<HealthScript>();
+            Health += plus.HpPlus();
+            if(Health > _maxHealth)
+            {
+                Health = _maxHealth;
+            }
         }
     }
 
     void OnTriggerStay2D(Collider2D other)
     {
         bool canShoot = Time.time > nextshot;
-        if (canShoot && other.CompareTag("Acid"))
+        if (canShoot && other.CompareTag("EnemyAtack"))
         {
             Health -= Random.Range(25, 50);
             nextshot = Time.time + shotDelay;
         }
-    }
-
-
-    private void Explosion()
-    {
-        Health -= Random.Range(35, 100);
     }
 }

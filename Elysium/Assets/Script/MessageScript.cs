@@ -2,11 +2,16 @@
 
 public class MessageScript : MonoBehaviour
 {
-    public SaveScript Save;
+    private SaveScript Save;
 
-    private void Update()
+    private void Start() 
     {
-        if (Save.Exit)
+        Save = GetComponentInParent<SaveScript>();
+    }
+
+    private void Update() 
+    {
+        if(Save.Exit)
         {
             Destroy(gameObject);
         }

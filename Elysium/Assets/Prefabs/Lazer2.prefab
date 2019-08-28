@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6246048133014759878}
   - component: {fileID: 7017561005570111419}
   - component: {fileID: 4934313499591585830}
+  - component: {fileID: 7747526022576483011}
   m_Layer: 0
   m_Name: Lazer2
   m_TagString: Lazer
@@ -120,3 +121,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeDeath: 2
+--- !u!114 &7747526022576483011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9205173664375247802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff1f0cfb1e0b4e2980c8866c59e267c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  min: 5
+  max: 10

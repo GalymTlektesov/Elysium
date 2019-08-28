@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8676572745456309457}
   - component: {fileID: 8676572745456309456}
   - component: {fileID: 8676572745456309462}
+  - component: {fileID: 2070267604005504419}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: EnemyAtack
@@ -111,6 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2feaa696e36a844b6a8ba0444e2cc881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 472374816949813735, guid: e028d78ed2fd343659bfcf8fcaf2228b,
+    type: 3}
   speed: 20
 --- !u!114 &8676572745456309456
 MonoBehaviour:
@@ -124,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1824c4ff83c724849b73e389c27ee3cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeDeath: 100
+  TimeDeath: 10
 --- !u!50 &8676572745456309462
 Rigidbody2D:
   serializedVersion: 4
@@ -146,3 +149,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 2
+--- !u!114 &2070267604005504419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8676572745456309459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff1f0cfb1e0b4e2980c8866c59e267c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  min: 0
+  max: 3

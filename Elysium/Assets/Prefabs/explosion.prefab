@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 3691521781914245735}
   - component: {fileID: 3331397448928399529}
   - component: {fileID: 7716918549270088942}
+  - component: {fileID: 1217127432630203055}
   m_Layer: 0
   m_Name: explosion
-  m_TagString: explosion
+  m_TagString: EnemyAtack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,3 +132,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeDeath: 0.5
+--- !u!114 &1217127432630203055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2382114116832678034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff1f0cfb1e0b4e2980c8866c59e267c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  min: 10
+  max: 45
