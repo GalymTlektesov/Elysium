@@ -5,6 +5,8 @@ public class TrapController : MonoBehaviour
     Transform Trap;
     public float yStay;
     public float yExit;
+
+    internal bool IsTouch;
     private void Awake()
     {
         Trap = GetComponent<Transform>();
@@ -23,11 +25,13 @@ public class TrapController : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         Trap.position = Vector2.MoveTowards(Trap.position, new Vector2(Trap.position.x, yStay), 2);
+        IsTouch = true;
     }
 
     //Проверка на прекращения столкновения двух объктов
     private void OnTriggerExit2D(Collider2D collision)
     {
         Trap.position = Vector2.MoveTowards(Trap.position, new Vector2(Trap.position.x, yExit), 2);
+        IsTouch = false;
     }
 }

@@ -13,7 +13,7 @@ public class HpPlayer : MonoBehaviour
     public float shotDelay; // задержка удара
     private float nextshot; //время когда удар снова наностится 
 
-    public static float Health { get => health; set => health = value; }
+    public static float Health { get => health; set { if (value >= 0 ) health = value; } }
 
     private float _maxHealth;
     public static int DeathPlayer = 2;
@@ -24,19 +24,6 @@ public class HpPlayer : MonoBehaviour
         _maxHealth = Health;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        image.color = Color.Lerp(Color.red, Color.green, Health / _maxHealth);
-        slider.value = Health;
-        if (Health < 1)
-        {
-            DeathPlayer++;
-            SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
-            TaskScript.Kill = 0;
-            //time.Time = 0;
-        }
-    }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -46,6 +33,7 @@ public class HpPlayer : MonoBehaviour
             var demage = collision.collider.GetComponent<DamageScript>();
             Health -= demage.Damage();
             nextshot = Time.time + shotDelay;
+            HpStatus();
         }
 
         if (collision.collider.CompareTag("Lazer") && canShoot)
@@ -53,6 +41,7 @@ public class HpPlayer : MonoBehaviour
             var demage = collision.collider.GetComponent<DamageScript>();
             Health -= demage.Damage();
             nextshot = Time.time + (shotDelay / 2);
+            HpStatus();
         }
     }
 
@@ -62,6 +51,7 @@ public class HpPlayer : MonoBehaviour
         {
             var demage = collision.GetComponent<DamageScript>();
             Health -= demage.Damage();
+            HpStatus();
         }
         if(collision.CompareTag("Hp"))
         {
@@ -70,6 +60,7 @@ public class HpPlayer : MonoBehaviour
             if(Health > _maxHealth)
             {
                 Health = _maxHealth;
+                HpStatus();
             }
         }
     }
@@ -81,6 +72,20 @@ public class HpPlayer : MonoBehaviour
         {
             Health -= Random.Range(25, 50);
             nextshot = Time.time + shotDelay;
+            HpStatus();
+        }
+    }
+
+    private void HpStatus()
+    {
+        image.color = Color.Lerp(Color.red, Color.green, Health / _maxHealth);
+        slider.value = Health;
+        if (Health < 1)
+        {
+            DeathPlayer++;
+            SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+            TaskScript.Kill = 0;
+            //time.Time = 0;
         }
     }
 }
