@@ -17,7 +17,7 @@ public class MoveCamera : MonoBehaviour
     {
         camera = GetComponent<Transform>();
         pause = 0.5f;
-        if (HpPlayer.DeathPlayer < 1)
+        if (HpPlayer.DeathPlayer < 0)
         {
             camera.position = new Vector3(164.62f, -6.4f, -10f);
         }

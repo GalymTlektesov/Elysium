@@ -9,15 +9,14 @@ public class HpPlayer : MonoBehaviour
     public Slider slider;
     public Image image;
 
-
     public float shotDelay; // задержка удара
     private float nextshot; //время когда удар снова наностится 
 
     public static float Health { get => health; set { if (value >= 0 ) health = value; } }
 
     private float _maxHealth;
-    public static int DeathPlayer = 2;
-
+    public static int DeathPlayer;
+    
     private void Start() 
     {
         health = 100;
