@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3331397448928399529}
   - component: {fileID: 7716918549270088942}
   - component: {fileID: 1217127432630203055}
+  - component: {fileID: -7548494553545636410}
   m_Layer: 0
   m_Name: explosion
   m_TagString: EnemyAtack
@@ -146,3 +147,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   min: 10
   max: 45
+--- !u!114 &-7548494553545636410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2382114116832678034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f129d10fd86f4802801d4681c5b493c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

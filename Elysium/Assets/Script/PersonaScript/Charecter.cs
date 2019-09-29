@@ -117,13 +117,13 @@ public class Charecter : MonoBehaviour
         }
 
         // Прыжок
-        if (Input.GetButton("Jump") && legs.condition == СondPlayer.Earch)
+        if (Input.GetButtonUp("Jump") && legs.condition == СondPlayer.Earch)
         {
             //charAnimator.SetTrigger("Jump");
             animNumber = 2;
             Jump(jumpforce);
         }
-        if (Input.GetButtonDown("Jump") && legs.condition == СondPlayer.AirOne)
+        if (Input.GetButtonUp("Jump") && legs.condition == СondPlayer.AirOne)
         {
             animNumber = 2;
             legs.condition = СondPlayer.AirTwo;

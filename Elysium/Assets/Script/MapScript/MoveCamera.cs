@@ -56,7 +56,6 @@ public class MoveCamera : MonoBehaviour
         }
         pause = 0;
     }
-
 }
 
 

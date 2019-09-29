@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8127373525946643890}
   - component: {fileID: 8127373525946643885}
   - component: {fileID: 8127373525946643886}
+  - component: {fileID: 3444527946772588999}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -94,12 +95,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37d0c6f2ebd84d5493c1c97d8733185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 8127373525946643886}
   speed: 5
   jumpforce: 20
-  HP: 100
-  bullet: {fileID: -58567769226918502, guid: 6320e9cf22cc343388e0f24723ea4af6, type: 3}
-  HpRegeneretionDelay: 1
+  legs: {fileID: 0}
+  punch: {fileID: 0}
+  punchDelay: 0
+  fire: {fileID: 0}
 --- !u!70 &8127373525946643885
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -137,3 +138,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &3444527946772588999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8127373525946643887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f129d10fd86f4802801d4681c5b493c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
